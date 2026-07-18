@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transparency is the product: what clinical AI gets wrong about expert users — Angela Petrone</title>
+<meta name="description" content="Surfacing every model detail backfires with specialists. What earns trust is the right information at the right moment in the workflow, not more of it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%23141419"/><text x="32" y="44" font-family="Georgia,serif" font-size="36" font-style="italic" fill="white" text-anchor="middle">A</text></svg>'>
+<link rel="stylesheet" href="case.css?v=68">
+<link rel="stylesheet" href="essay.css?v=68">
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html#top" class="nav-brand">
+      <span class="nav-mark" aria-hidden="true"></span>
+      <span class="nav-name">Angela&nbsp;Petrone</span><span class="nav-pm" aria-hidden="true">Builder &amp; Researcher</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#lab">Lab</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#writing">Writing</a>
+      <a href="index.html#approach">Approach</a>
+      <a href="#contact" class="nav-cta">Contact <span class="arr" aria-hidden="true">↗</span></a>
+      <button class="nav-ai" id="openChat" aria-label="Chat with Angela's AI" title="Ask my AI anything">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3l1.6 5.2a3 3 0 0 0 2.2 2.2L21 12l-5.2 1.6a3 3 0 0 0-2.2 2.2L12 21l-1.6-5.2a3 3 0 0 0-2.2-2.2L3 12l5.2-1.6a3 3 0 0 0 2.2-2.2L12 3z" fill="currentColor"/>
+          <path d="M19 4.2l.5 1.6.5.2-.5.2-.5 1.6-.5-1.6-.5-.2.5-.2.5-1.6z" fill="currentColor"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+<div class="read-min" id="readMin" aria-hidden="true">— MIN LEFT</div>
+<main>
+  <div class="essay">
+    <aside class="essay-rail">
+      <div class="er-title">Transparency is the Product</div>
+      <div class="er-label">Writing</div>
+      <nav class="er-toc">
+        <a href="#abstract" class="">Abstract</a>
+        <a href="#reflex" class="">I. The transparency reflex</a>
+        <a href="#experts" class="">II. What experts do with information</a>
+        <a href="#trust" class="">III. Trust is a workflow property</a>
+        <a href="#glassbox" class="">IV. Designing the glass box</a>
+        <a href="#notes" class="">Notes</a>
+        <a href="#cited" class="">Works Cited</a>
+      </nav>
+      <div class="er-foot">
+        <a class="er-back" href="index.html#writing"><span class="c" aria-hidden="true">‹</span> Back to writing</a>
+        <div class="er-social"><a href="https://www.linkedin.com/in/apetrone02" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/avgelix" target="_blank" rel="noopener">GitHub</a></div>
+        <div class="er-email">apetrone@hawk.illinoistech.edu</div>
+      </div>
+    </aside>
+    <article class="essay-main">
+      <span class="em-status">Essay</span>
+      <h1 class="em-h1">Transparency is the product: what clinical AI gets wrong about expert users</h1>
+      <p class="em-dek">Surfacing every model detail backfires with specialists. What earns trust is the right information at the right moment in the workflow, not more of it.</p>
+      
+      <h2 id="abstract">Abstract</h2>
+      <p class="drop">Clinical AI teams treat transparency as an amount (more exposed model internals, more confidence scores, more explanation) and assume that adding it builds trust. Working with pathologists on a diagnostic tool, I found the opposite: dumping model detail on expert users <em>reduced</em> trust, because it added cognitive load without answering the question the expert was actually asking.<sup class="fn"><a href="#n1" id="r1">1</a></sup><span class="fnote"><span class="fn-n">1</span>Drawn from a validation engagement at UChicago Medicine&rsquo;s SlideFlow Labs; see the case study on this site.</span> This essay argues that transparency isn't a quantity you add. It's a <span class="term">product</span> you design.</p>
+
+      <h2 id="reflex">I. The transparency reflex</h2>
+      <p class="drop">When a team ships an AI system into a high-stakes setting, the instinct is to make it maximally legible. Surface the features. Show the probability. Publish the confusion matrix. The reasoning is intuitive: experts are skeptical, so give them everything and let them judge.<sup class="fn"><a href="#n2" id="r2">2</a></sup><span class="fnote"><span class="fn-n">2</span>On explanation as a human, contrastive act, see Miller (2019).</span></p>
+      <p>But <span class="term">transparency</span> defined as exposure assumes the bottleneck is information supply. For expert users it rarely is. A thyroid pathologist doesn't lack information; they're drowning in it. What they lack is a fast, defensible way to decide whether this particular output belongs in this particular case.</p>
+      <p>The recent human-AI interaction literature has caught up with this. Vasconcelos and colleagues showed that whether an explanation helps at all is a cost-benefit calculation the user makes in the moment: people engage with explanations when engaging is cheaper than the risk of being wrong, and ignore them otherwise.<sup class="fn"><a href="#n4" id="r4">4</a></sup><span class="fnote"><span class="fn-n">4</span>Vasconcelos et al., &ldquo;Explanations Can Reduce Overreliance on AI Systems During Decision-Making,&rdquo; <i>PACM HCI</i> 7, CSCW1 (2023).</span> Explanation isn't a substance you pour on a user. It's an offer, and experts decline expensive offers.</p>
+      <p>We watched this play out in validation sessions. The first prototype followed the reflex faithfully: model internals, confidence values, technical vocabulary. Pathologists' trust ratings landed anywhere from 1 to 3, and some declined to rate the tool at all. Nothing about the model had failed. The disclosure had.</p>
+
+      <h2 id="experts">II. What experts do with information</h2>
+      <p class="drop">Expertise is compression. A specialist has already internalized which signals matter and which are noise, so their scarce resource is attention, not data. Hand them a panel of twelve model internals and you haven't empowered them. You've handed them a second diagnostic problem on top of the first.</p>
+      <p>In sessions, the useful moments were never the raw numbers. They were the moments where the tool surfaced <em>one</em> piece of evidence, at the point in the read where a decision was being made, in the vocabulary the pathologist already used.<sup class="fn"><a href="#n3" id="r3">3</a></sup><span class="fnote"><span class="fn-n">3</span>Bussone, Stumpf, and O&rsquo;Sullivan (2015): more explanation can erode trust depending on framing and timing.</span> That isn't less transparent. It's transparency aimed at a decision.</p>
+      <p>This tracks with what the explanation literature has said for years: an explanation is a social act, contrastive and selective, not a data dump. People don't want the full causal chain. They want the answer to "why this, rather than what I expected." Design for that question and a single well-placed piece of evidence outperforms a dashboard of internals.</p>
+
+      <h2 id="trust">III. Trust is a workflow property</h2>
+      <p class="drop">We talk about trust as a static attitude: a user either trusts a system or doesn't. In practice trust is produced moment to moment, inside a workflow, by whether the system shows up as helpful exactly when it's consulted and stays out of the way otherwise.</p>
+      <p>That reframing changes the unit of design from the model to the <span class="term">encounter</span>. The question is no longer &ldquo;how do we explain the model&rdquo; but &ldquo;what does the expert need to see at the instant they would otherwise hesitate.&rdquo; Answer that, and trust ratings move. We watched them move: after the redesign, every survey item scored a 4 or 5, from a starting point where nothing scored above 3.</p>
+      <p>It also explains why trust surveys taken outside the workflow mislead. Ask a specialist whether they trust an AI tool in the abstract and you'll get their prior about AI. Ask them after they've worked a real case with it, at the moment the tool either helped or got in the way, and you get something closer to the truth. We timed every rating to the end of contextual sessions for exactly this reason.</p>
+      <p>The field has started calling the real goal <span class="term">appropriate reliance</span>: following the AI when it's right, overriding it when it's wrong.<sup class="fn"><a href="#n5" id="r5">5</a></sup><span class="fnote"><span class="fn-n">5</span>Schemmer et al., &ldquo;Appropriate Reliance on AI Advice,&rdquo; <i>IUI</i> (2023).</span> Maximal trust is not the target. A pathologist who trusts a diagnostic model unconditionally is as dangerous as one who refuses to look at it. Transparency's actual job is calibration, and calibration happens per case, per moment, not per product.</p>
+
+      <h2 id="glassbox">IV. Designing the glass box</h2>
+      <p class="drop">The redesign replaced a black-box output with a <span class="term">glass box</span>: the model&rsquo;s reasoning surfaced at the decision point, in validated terminology, with two distinct modes for the pathologist and the technician whose workflows genuinely differ. None of this is &ldquo;more&rdquo; transparency in the quantity sense. It's transparency treated as a designed product with a job to do.</p>
+      <p>The lesson generalizes past medicine. Any time you put a model in front of an expert, the failure mode is the same: confusing legibility with usefulness. The fix is the same too. Design the information, not the disclosure.</p>
+
+      <h2 id="notes">Notes</h2>
+      <ol class="essay-notes">
+        <li id="n1">Engagement at UChicago Medicine (SlideFlow Labs), thyroid pathology validation. See the linked case study.</li>
+        <li id="n2">Tim Miller, &ldquo;Explanation in Artificial Intelligence: Insights from the Social Sciences,&rdquo; <i>Artificial Intelligence</i> 267 (2019): 1&ndash;38.</li>
+        <li id="n3">Adrian Bussone, Simone Stumpf, and Dympna O&rsquo;Sullivan, &ldquo;The Role of Explanations on Trust and Reliance in Clinical Decision Support Systems,&rdquo; <i>ICHI</i> (2015).</li>
+        <li id="n4">Helena Vasconcelos, Matthew J&ouml;rke, Madeleine Grunde-McLaughlin, Tobias Gerstenberg, Michael S. Bernstein, and Ranjay Krishna, &ldquo;Explanations Can Reduce Overreliance on AI Systems During Decision-Making,&rdquo; <i>Proceedings of the ACM on Human-Computer Interaction</i> 7, CSCW1, Article 129 (2023).</li>
+        <li id="n5">Max Schemmer, Niklas K&uuml;hl, Carina Benz, Andrea Bartos, and Gerhard Satzger, &ldquo;Appropriate Reliance on AI Advice: Conceptualization and the Effect of Explanations,&rdquo; <i>IUI</i> (2023).</li>
+      </ol>
+
+      <h2 id="cited">Works Cited</h2>
+      <div class="essay-cited">
+        <p class="drop">Bussone, Adrian, Simone Stumpf, and Dympna O&rsquo;Sullivan. &ldquo;The Role of Explanations on Trust and Reliance in Clinical Decision Support Systems.&rdquo; In <i>2015 IEEE International Conference on Healthcare Informatics</i>, 160&ndash;169. IEEE, 2015.</p>
+        <p>Miller, Tim. &ldquo;Explanation in Artificial Intelligence: Insights from the Social Sciences.&rdquo; <i>Artificial Intelligence</i> 267 (2019): 1&ndash;38.</p>
+        <p>Schemmer, Max, Niklas K&uuml;hl, Carina Benz, Andrea Bartos, and Gerhard Satzger. &ldquo;Appropriate Reliance on AI Advice: Conceptualization and the Effect of Explanations.&rdquo; In <i>Proceedings of IUI 2023</i>. ACM, 2023.</p>
+        <p>Vasconcelos, Helena, Matthew J&ouml;rke, Madeleine Grunde-McLaughlin, Tobias Gerstenberg, Michael S. Bernstein, and Ranjay Krishna. &ldquo;Explanations Can Reduce Overreliance on AI Systems During Decision-Making.&rdquo; <i>Proceedings of the ACM on Human-Computer Interaction</i> 7, CSCW1 (2023).</p>
+        <p>Amershi, Saleema, et al. &ldquo;Guidelines for Human&ndash;AI Interaction.&rdquo; In <i>Proceedings of CHI 2019</i>. ACM, 2019.</p>
+      </div>
+    </article>
+  </div>
+</main>
+<section class="endslab" id="contact">
+  <a class="fx-big" href="mailto:apetrone@hawk.illinoistech.edu" aria-label="Email Angela — let's work together">
+    <span class="fx-track"><span>Let&rsquo;s work together&nbsp;—&nbsp;</span><span aria-hidden="true">Let&rsquo;s work together&nbsp;—&nbsp;</span></span>
+  </a>
+  <div class="wrap fx-mid">
+    <nav class="fx-links" aria-label="Social">
+      <a href="https://www.linkedin.com/in/apetrone02" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/avgelix" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+      <button type="button" id="openChatFoot">Ask my AI <span aria-hidden="true">✦</span></button>
+    </nav>
+    <p class="fx-note"><span class="foot-dot" aria-hidden="true"></span>I&rsquo;m open to full-time roles starting January 2027 —<br>and I&rsquo;m always free for a coffee.</p>
+  </div>
+  <div class="wrap fx-base">
+    <a href="mailto:apetrone@hawk.illinoistech.edu">apetrone@hawk.illinoistech.edu</a>
+    <span>© <span id="year">2026</span> Crafted by Angela Petrone</span>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">↑ Back to top</a>
+  </div>
+</section>
+
+<div class="aichat" id="aichat" hidden aria-modal="true" role="dialog" aria-label="Chat with Angela's AI">
+  <div class="aic-amb" aria-hidden="true"></div>
+  <div class="aic-glow" id="aicGlow" aria-hidden="true"></div>
+  <div class="aic-bar">
+    <span class="aic-name">Angela&nbsp;Petrone <span class="aic-sub">· AI</span></span>
+    <button class="aic-close" id="closeChat" aria-label="Close chat">Close <span aria-hidden="true">×</span></button>
+  </div>
+  <div class="aic-scroll" id="aicScroll">
+    <div class="aic-thread" id="aicThread">
+      <div class="aic-msg aic-intro">
+        <p><strong>I'm Angela Petrone's AI assistant.</strong> Ask me anything about her work, her thinking, or how she builds — I'll answer the way she would.</p>
+        <p>Angela is a product builder and researcher who takes problems nobody has scoped yet and turns them into things teams can build, working end-to-end across engineering, design, research, and strategy.</p>
+        <p>Right now she's an <strong>AI Product Builder at GlobalLogic</strong>, where she shipped a multi-agent sales system solo in 5 weeks. She's validated clinical AI at <span class="aic-hl">UChicago Medicine</span>, shipped AI knowledge management at <span class="aic-hl">Method</span>, and shaped a federal data product at <span class="aic-hl">Education First</span>.</p>
+        <p>Between projects she builds her own tools: live experiments, local RAG pipelines, Chrome extensions.</p>
+        <p>Reach her at <a href="mailto:apetrone@hawk.illinoistech.edu">apetrone@hawk.illinoistech.edu</a>, <a href="https://www.linkedin.com/in/apetrone02" target="_blank" rel="noopener">LinkedIn ↗</a>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="aic-dock">
+    <div class="aic-chips" id="aicChips">
+      <button class="aic-chip" data-q="what-pm">What do you do?</button>
+      <button class="aic-chip" data-q="intelligence">How do you define intelligence in the age of AI?</button>
+      <button class="aic-chip" data-q="lab">What do you build in your spare time?</button>
+      <button class="aic-chip" data-q="last-project">What is the last project you worked on?</button>
+    </div>
+    <form class="aic-form" id="aicForm">
+      <input class="aic-input" id="aicInput" type="text" autocomplete="off" placeholder="Ask me about my work or how I think…" aria-label="Ask a question">
+      <button class="aic-send" type="submit" aria-label="Send">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+  </div>
+</div>
+
+<script src="main.js?v=68"></script>
+</body>
+</html>

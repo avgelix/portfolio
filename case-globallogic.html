@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Case study: a LangGraph multi-agent system for consulting sales outreach, built solo in 5 weeks — RAG-grounded drafting, LLM-as-Judge evaluation, and expert-in-the-loop review.">
+<title>Five weeks to a deployed multi-agent system | Angela Petrone</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%23141419"/><text x="32" y="44" font-family="Georgia,serif" font-size="36" font-style="italic" fill="white" text-anchor="middle">A</text></svg>'>
+<link rel="stylesheet" href="case.css?v=68">
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html#top" class="nav-brand">
+      <span class="nav-mark" aria-hidden="true"></span>
+      <span class="nav-name">Angela&nbsp;Petrone</span><span class="nav-pm" aria-hidden="true">Builder &amp; Researcher</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#lab">Lab</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#writing">Writing</a>
+      <a href="index.html#approach">Approach</a>
+      <a href="#contact" class="nav-cta">Contact <span class="arr" aria-hidden="true">↗</span></a>
+      <button class="nav-ai" id="openChat" aria-label="Chat with Angela's AI" title="Ask my AI anything">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3l1.6 5.2a3 3 0 0 0 2.2 2.2L21 12l-5.2 1.6a3 3 0 0 0-2.2 2.2L12 21l-1.6-5.2a3 3 0 0 0-2.2-2.2L3 12l5.2-1.6a3 3 0 0 0 2.2-2.2L12 3z" fill="currentColor"/>
+          <path d="M19 4.2l.5 1.6.5.2-.5.2-.5 1.6-.5-1.6-.5-.2.5-.2.5-1.6z" fill="currentColor"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+<div class="layout">
+<aside class="toc">
+<div class="toc-title">In this case study</div>
+<ul class="toc-list">
+<li><a href="#problem"><span class="n">01</span>The problem</a></li>
+<li><a href="#constraints"><span class="n">02</span>Constraints</a></li>
+<li><a href="#decisions"><span class="n">03</span>Key decisions</a></li>
+<li><a href="#measure"><span class="n">04</span>How I measured success</a></li>
+<li><a href="#solution"><span class="n">05</span>The solution</a></li>
+<li><a href="#outcomes"><span class="n">06</span>Outcomes</a></li>
+<li><a href="#next"><span class="n">07</span>What I would do next</a></li>
+</ul>
+<div class="toc-meta">
+<div class="lbl">Role</div><div class="val">AI Product Builder Intern @ <a href="https://www.globallogic.com" target="_blank" rel="noopener">GlobalLogic</a></div>
+<div class="lbl">Time</div><div class="val">8 weeks</div>
+<div class="lbl">Team</div><div class="val">Solo build</div>
+<div class="lbl">Skills</div><div class="val">Product definition, user interviews, multi-agent architecture (LangGraph), prompt engineering, evaluation design (DeepEval), RAG grounding (ChromaDB), deployment</div>
+</div>
+</aside>
+<main>
+<div class="case-head"><div class="case-logo"><img src="assets/logos/globallogic-gray.png" alt="GlobalLogic"></div><span class="case-cat">Multi-Agent AI</span></div>
+<h1>Five weeks to a deployed multi-agent system</h1>
+<div class="chips"><span class="chip">MULTI-AGENT AI</span><span class="chip">B2B SALES</span><span class="chip">DEPLOYED</span></div>
+<p class="case-sub">A LangGraph-based multi-agent system for consulting sales experts, built solo in 5 weeks. User-reported time-to-draft fell from over 2 hours to about 5 minutes, and the outcomes were presented to senior stakeholders.</p>
+
+<h2 id="problem">The problem</h2>
+<p>Consulting sales experts spend hours assembling B2B prospecting outreach communication: researching an account, matching it against the consultancy's capabilities, and drafting messages that sound like them rather than a template. Each draft took a user-reported 2-10+ hours.</p>
+<p>Looking closer at the process revealed two distinct halves. Identifying the right client is real expertise: network-reliant, and hinging on factors no system can predict or controls. But what follows, from monitoring intent signals through account research to enriching contact data and packaging the message, mostly relies on applying rules consistently, and it ran <b>two to ten hours per prospect</b>. That part of prospecting is where expertise leaves its place to information gathering and packaging</p>
+<p>The mandate was open: build something with AI that helps. What that something was (which parts of the workflow to automate, which to leave to the expert, and how to prove it worked) was mine to define. I owned the product end to end, from definition through evaluation and deployment, grounded it in interviews with 5 sales experts, and built it in 5 weeks.</p>
+<div class="keyq"><div class="kql">The key question</div><p>Where is the line between what agents should automate and what has to stay <em style="font-style:normal;color:var(--blue)">personal</em> for the outreach to keep working?</p></div>
+<h2 id="constraints">Constraints</h2>
+<div class="ctable-wrap"><table class="ctable"><tbody><tr><th>Timeline</th><td><b>5 weeks</b> from product definition to deployment, as a solo builder.</td></tr><tr><th>Users</th><td><b>Consulting sales experts</b> with strong personal styles and no tolerance for generic AI output.</td></tr><tr><th>Technical / domain</th><td>Drafts had to be <b>grounded in real account context</b>; a wrong claim in outreach costs credibility with the prospect.</td></tr><tr><th>Business need</th><td>Results had to be <b>presentable to senior stakeholders</b> as evidence the approach works.</td></tr></tbody></table></div>
+<div class="fig fig-photo"><img src="assets/GlobalLogic/system-architecture.png" alt="System architecture diagram showing agent roles, handoffs, and orchestration layers" loading="lazy"></div><div class="figcap">LANGGRAPH ORCHESTRATION · AGENT ROLES AND HANDOFFS</div>
+<h2 id="decisions">Key decisions</h2>
+<p>Solo and on a five-week clock, every architectural choice was also a scoping choice. These decisions shaped what got built within my 5-week window.</p>
+<div class="decision"><div class="dl">Decision #1: Multi-agent, not one big prompt</div><p>A single prompt could produce a draft, but it couldn't research an account, reason about fit, and write in an expert's voice with any reliability, because each step fails differently and needs different context. <b>Splitting the work into specialized agents orchestrated with LangGraph</b> made each step testable and debuggable on its own, which is what made five weeks feasible.</p></div><div class="decision"><div class="dl">Decision #2: Personalization vs automation, drawn deliberately</div><p>Full automation produces outreach that reads like automation, and experts won't send what doesn't sound like them. <b>The system automates research and structure; the expert's voice and judgment stay in the loop.</b> That balance was the core product decision, and it's what separated this from a template generator.</p></div><div class="decision"><div class="dl">Decision #3: Put the human where the stakes are</div><p>Review had to happen where a mistake would be expensive: before anything reaches a prospect. <b>The expert reviews and edits at the draft stage</b>, where five minutes of their attention catches what agents miss, instead of auditing every intermediate step or rubber-stamping a finished send.</p></div><div class="decision"><div class="dl">Decision #4: Evaluate deterministically and non-deterministically</div><p>A 5-minute draft is worthless if it's a bad draft. <b>The system was evaluated on both deterministic and non-deterministic criteria</b>: citation retrieval accuracy and hallucinated metric references measured directly, and the final agent's output judged against an LLM-as-Judge setup built with DeepEval.</p></div><div class="decision"><div class="dl">Decision #5: Make the system watchable</div><p>Multi-agent systems fail opaquely: when a draft comes out wrong, the question is always which agent went wrong and what it cost to find out. <b>A live activity console streams per-agent logs in real time, and every run auto-generates a cost report</b>, with settings and model-call costs tracked per rep. Observability was built as a feature rather than a debug tool; an expert reviewing a draft can see exactly which agent did what, and a stakeholder evaluating the system can see what each run costs.</p></div>
+<h2 id="measure">How I measured success</h2>
+<p>The headline metric was <b>user-reported time-to-draft</b>, because time was the cost experts actually felt: the baseline of 2+ hours came from the experts themselves, and the ~5 minute result was reported the same way. Both numbers came from the same people by the same method, which keeps the comparison honest.</p>
+<p>Time alone wasn't enough, so quality had its own evaluation layer: <b>the evaluation suite detailed below</b>. Interviews with the 5 experts grounded what the system needed to get right in the first place. A tool that saves two hours and produces unreliable drafts has saved nothing.</p>
+<h3 class="subsec" id="evals">The evaluation suite</h3>
+<p>The suite covers six dimensions: <b>trigger precision, retrieval quality, citation match, voice, compliance, and the judge itself</b>. The deterministic dimensions are measured directly: whether every citation resolves to a real source, and whether any metric appears in a draft that doesn't exist in the retrieved data. The dimensions that resist hard rules, voice and compliance among them, are scored by the <b>LLM-as-Judge built with DeepEval</b>, reasoning before it scores.</p>
+<p>The judge gets audited too. A quality gate nobody checks becomes the weakest link in the pipeline, so <b>judge accuracy is its own eval dimension</b> rather than an assumption. That's what lets the headline number carry weight: a draft that ships has passed the deterministic checks, cleared the judge, and the judge itself has a measured track record.</p>
+<div class="fig fig-photo"><img src="assets/GlobalLogic/evaluations-table.png" alt="Evaluation table: dimensions, methods, and results across trigger precision, retrieval, citation match, voice, compliance, and judge accuracy" loading="lazy"></div><div class="figcap">THE EVALUATION SUITE · DIMENSIONS AND RESULTS</div>
+<h2 id="solution">The solution</h2>
+<p>The Sales Prospecting Intelligence System (SPIS) is a <b>LangGraph-based multi-agent pipeline</b> that runs the rule-based half of prospecting end to end. A scheduler-driven monitor scans the watchlist and live news; a trigger evaluator acts as the gate, rejecting stale or irrelevant events before they cost anyone attention. When a trigger passes, a draft compiler orchestrates three sequential sub-agents (an executive specialist framing the message for its reader, a compliance guard scrubbing risky phrasing, and a voice-matcher aligning the draft with the expert's own writing), with <b>every draft grounded through RAG over the consultancy's case studies</b> rather than the model's memory.</p>
+<p>Quality gets enforced before a human ever sees the result: <b>an LLM judge scores each draft with chain-of-thought reasoning and recalls failing drafts to the exact step at fault</b>, up to five passes, shipping only at 8/10 or above (Gemini 2.5 Flash runs the pipeline agents; Pro runs the judge). The expert stays in the loop at both ends, defining the watchlist and approving the send. Research and assembly are automated; voice and judgment are not.</p>
+<p>What it was deliberately not designed to be matters just as much: not fully autonomous, because that creates trust and compliance risks in consulting sales, and not a volume accelerator, because this business runs on relationships rather than reach. It shipped as a working deployment, not a prototype. The outcomes were <b>presented to senior stakeholders</b> as evidence for how the consultancy could apply agentic AI to its own sales practice.</p>
+<div class="fig fig-photo"><img src="assets/GlobalLogic/SPIS-UI.png" alt="Product interface showing agent activity and a draft under expert review" loading="lazy"></div><div class="figcap">DRAFT REVIEW FLOW · EXPERT-IN-THE-LOOP</div>
+<h2 id="outcomes">Outcomes</h2>
+<div class="metrics">
+<div><div class="num">2+ hrs → ~5 min</div><div class="lbl">user-reported time-to-draft, with quality gated by deterministic and LLM-as-Judge evaluations</div></div>
+<div><div class="num">5 weeks</div><div class="lbl">product definition to deployment, built solo</div></div>
+</div>
+<p>The ~5 minute figure counts only drafts that passed every evaluation gate.</p>
+<h2 id="next">What I would do next</h2>
+<ul class="next-list">
+<li><b>Pilot it in live outreach.</b> The system was evaluated as a proof of concept. Wiring it to reality would be the next test: one-click send instead of draft-only, relationship history pulled from the firm's own systems instead of synthetic data, and edit distance per draft as the trust signal.</li>
+<li><b>Close the learning loop.</b> Reps' approve, edit, and reject decisions already pass through the app and are currently discarded; saving them gives the system something to learn from. The path runs from conversational fixes ("make it shorter" is already prototyped) to drafts that learn each rep's voice from what they approve, and eventually to fine-tuning on the firm's accumulated style.</li>
+<li><b>Close the loop on outcomes.</b> Time-to-draft measures the input side; reply rates on agent-assisted vs. manual outreach would test whether quality survived the speedup.</li>
+<li><b>Scale it, then harden it.</b> Parallel processing would let the system work multiple companies at once when a large watchlist gets busy, and moving onto Vertex AI would bring the data-security guarantees an enterprise deployment needs.</li>
+</ul>
+<nav class="case-next">
+<a href="#" onclick="history.back();return false">← All work</a>
+<a class="nx" href="case-clinical-ai.html"><span class="nlbl">Next</span>Validating a clinical AI product before it became a liability →</a>
+</nav>
+</main>
+</div>
+<section class="endslab" id="contact">
+  <a class="fx-big" href="mailto:apetrone@hawk.illinoistech.edu" aria-label="Email Angela — let's work together">
+    <span class="fx-track"><span>Let&rsquo;s work together&nbsp;—&nbsp;</span><span aria-hidden="true">Let&rsquo;s work together&nbsp;—&nbsp;</span></span>
+  </a>
+  <div class="wrap fx-mid">
+    <nav class="fx-links" aria-label="Social">
+      <a href="https://www.linkedin.com/in/apetrone02" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/avgelix" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+      <button type="button" id="openChatFoot">Ask my AI <span aria-hidden="true">✦</span></button>
+    </nav>
+    <p class="fx-note"><span class="foot-dot" aria-hidden="true"></span>I&rsquo;m open to full-time roles starting January 2027 —<br>and I&rsquo;m always free for a coffee.</p>
+  </div>
+  <div class="wrap fx-base">
+    <a href="mailto:apetrone@hawk.illinoistech.edu">apetrone@hawk.illinoistech.edu</a>
+    <span>© <span id="year">2026</span> Crafted by Angela Petrone</span>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">↑ Back to top</a>
+  </div>
+</section>
+
+<div class="aichat" id="aichat" hidden aria-modal="true" role="dialog" aria-label="Chat with Angela's AI">
+  <div class="aic-amb" aria-hidden="true"></div>
+  <div class="aic-glow" id="aicGlow" aria-hidden="true"></div>
+  <div class="aic-bar">
+    <span class="aic-name">Angela&nbsp;Petrone <span class="aic-sub">· AI</span></span>
+    <button class="aic-close" id="closeChat" aria-label="Close chat">Close <span aria-hidden="true">×</span></button>
+  </div>
+  <div class="aic-scroll" id="aicScroll">
+    <div class="aic-thread" id="aicThread">
+      <div class="aic-msg aic-intro">
+        <p><strong>I'm Angela Petrone's AI assistant.</strong> Ask me anything about her work, her thinking, or how she builds — I'll answer the way she would.</p>
+        <p>Angela is a product builder and researcher who takes problems nobody has scoped yet and turns them into things teams can build, working end-to-end across engineering, design, research, and strategy.</p>
+        <p>Right now she's an <strong>AI Product Builder at GlobalLogic</strong>, where she shipped a multi-agent sales system solo in 5 weeks. She's validated clinical AI at <span class="aic-hl">UChicago Medicine</span>, shipped AI knowledge management at <span class="aic-hl">Method</span>, and shaped a federal data product at <span class="aic-hl">Education First</span>.</p>
+        <p>Between projects she builds her own tools: live experiments, local RAG pipelines, Chrome extensions.</p>
+        <p>Reach her at <a href="mailto:apetrone@hawk.illinoistech.edu">apetrone@hawk.illinoistech.edu</a>, <a href="https://www.linkedin.com/in/apetrone02" target="_blank" rel="noopener">LinkedIn ↗</a>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="aic-dock">
+    <div class="aic-chips" id="aicChips">
+      <button class="aic-chip" data-q="what-pm">What do you do?</button>
+      <button class="aic-chip" data-q="intelligence">How do you define intelligence in the age of AI?</button>
+      <button class="aic-chip" data-q="lab">What do you build in your spare time?</button>
+      <button class="aic-chip" data-q="last-project">What is the last project you worked on?</button>
+    </div>
+    <form class="aic-form" id="aicForm">
+      <input class="aic-input" id="aicInput" type="text" autocomplete="off" placeholder="Ask me about my work or how I think…" aria-label="Ask a question">
+      <button class="aic-send" type="submit" aria-label="Send">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+  </div>
+</div>
+
+<script src="main.js?v=68"></script>
+</body>
+</html>

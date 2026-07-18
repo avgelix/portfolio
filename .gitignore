@@ -1,0 +1,47 @@
+# OS junk
+.DS_Store
+**/.DS_Store
+
+# Working files (not part of the site)
+footer-options*.html
+portfolio-audit.md
+cleanup-before-deploy.md
+
+# Unused assets — originals, replaced files, and source images not referenced by the site
+# (the site uses the processed/web copies; these stay on your machine but won't be deployed)
+
+# Heavy originals (web copies are what the site loads)
+assets/me/landscape-me.png
+assets/data-dashboard/dashboard-recording.mov
+assets/job extension/Tempus-video.mp4
+assets/voice -of/voice-of-recording.mp4
+assets/Uchicago/usability-testing.JPG
+assets/Uchicago/UI1.png
+assets/Uchicago/UI2.png
+assets/Method/Method-framer-hifi-v1.png
+
+# Raw brand logos (site uses the gray versions in assets/logos/)
+assets/GlobalLogic/globallogic-logo.jpg
+assets/Uchicago/UCM-logo.png
+assets/Method/method-logo.jpg
+assets/EdFirst/edfirst-logo.png
+
+# Replaced or never-placed images
+assets/me/blackandwhite-me.png
+assets/me/blackandwhite-me-whitebg.png
+assets/me/me-b&w.png
+assets/me/me-bw.png
+assets/me/me-blackandwhite.png
+assets/me/landscape-me 2.png
+assets/me/landscape-me-retouched.png
+assets/me/landscape-me-web.jpg
+assets/Method/Method_cohort_pic.jpg
+
+# Old GIFs (replaced by MP4s) and failed optimization attempts
+assets/Method/prioritizationworkshop-ezgif.com-speed.gif
+assets/Method/codesignworkshop-ezgif.com-speed.gif
+assets/Method/prioritization-workshop-web.gif
+assets/Method/codesign-workshop-web.gif
+
+# Full-res workshop originals folder (web JPGs in use)
+assets/EdFirst/stakeholder workshop in person/

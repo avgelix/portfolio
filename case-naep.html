@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Case study: strategic consulting for the U.S. Department of Education — first-of-their-kind data visualization prototypes, local RAG over stakeholder interviews, and LLMs surfacing prediction uncertainty.">
+<title>Designing for data in the open | Angela Petrone</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%23141419"/><text x="32" y="44" font-family="Georgia,serif" font-size="36" font-style="italic" fill="white" text-anchor="middle">A</text></svg>'>
+<link rel="stylesheet" href="case.css?v=45">
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html#top" class="nav-brand">
+      <span class="nav-mark" aria-hidden="true"></span>
+      <span class="nav-name">Angela&nbsp;Petrone</span><span class="nav-pm" aria-hidden="true">Builder &amp; Researcher</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#lab">Lab</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#writing">Writing</a>
+      <a href="index.html#approach">Approach</a>
+      <a href="#contact" class="nav-cta">Contact <span class="arr" aria-hidden="true">↗</span></a>
+      <button class="nav-ai" id="openChat" aria-label="Chat with Angela's AI" title="Ask my AI anything">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3l1.6 5.2a3 3 0 0 0 2.2 2.2L21 12l-5.2 1.6a3 3 0 0 0-2.2 2.2L12 21l-1.6-5.2a3 3 0 0 0-2.2-2.2L3 12l5.2-1.6a3 3 0 0 0 2.2-2.2L12 3z" fill="currentColor"/>
+          <path d="M19 4.2l.5 1.6.5.2-.5.2-.5 1.6-.5-1.6-.5-.2.5-.2.5-1.6z" fill="currentColor"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+<div class="layout">
+<aside class="toc">
+<div class="toc-title">In this case study</div>
+<ul class="toc-list">
+<li><a href="#problem"><span class="n">01</span>The problem</a></li>
+<li><a href="#constraints"><span class="n">02</span>Constraints</a></li>
+<li><a href="#decisions"><span class="n">03</span>Key decisions</a></li>
+<li><a href="#measure"><span class="n">04</span>How I measured success</a></li>
+<li><a href="#solution"><span class="n">05</span>The solution</a></li>
+<li><a href="#outcomes"><span class="n">06</span>Outcomes</a></li>
+<li><a href="#next"><span class="n">07</span>What I would do next</a></li>
+</ul>
+<div class="toc-meta">
+<div class="lbl">Role</div><div class="val">Design Researcher &amp; Builder @ <a href="https://www.education-first.com" target="_blank" rel="noopener">Education First</a></div>
+<div class="lbl">Time</div><div class="val">7 months</div>
+<div class="lbl">Team</div><div class="val">3 designers, 5 education consultants, 1 project manager, 4 subject matter experts</div>
+<div class="lbl">Skills</div><div class="val">Workshop facilitation, research synthesis, data protocols, data visualization design, LLM prototyping, local RAG pipelines, MCP design, product strategy</div>
+</div>
+</aside>
+<main>
+<div class="case-head"><div class="case-logo"><img src="assets/logos/education-first-gray.png" alt="Education First Consulting"></div><span class="case-cat">Govtech</span></div>
+<h1>Designing for data in the open</h1>
+<div class="chips"><span class="chip">DATA PRODUCT</span><span class="chip">AI INTEGRATION</span><span class="chip">GOVTECH</span><span class="chip">ONGOING</span></div>
+<p class="case-sub">Strategic consulting for the U.S. Department of Education on a national platform serving 500K+ students&rsquo; data: research, plus designing and building first-of-their-kind data visualization prototypes for government education testing, with LLMs surfacing prediction uncertainty over longitudinal data. Ongoing through December 2026.</p>
+
+<h2 id="problem">The problem</h2>
+<p>The client is the United States Department of Education, which runs a national education data program informing policy at the federal, state, district, and school level and touching over 500,000 students. The engagement covers the next iteration of the program&rsquo;s data infrastructure, with a mandate to identify meaningful AI integration opportunities. My work spans research, design, and build: I am designing first-of-their-kind data visualization prototypes for government education testing and applying LLMs to surface prediction uncertainty over longitudinal data, building personalized tools for researchers and policymakers.</p>
+<p>The scope had to be defined before any of that could happen. Thirty-plus stakeholders spanning federal, state, and district levels each had different priorities, different mental models of what design could accomplish, and different assumptions about what this engagement would produce. The first job was getting them aligned on what the engagement was actually for.</p>
+<div class="keyq"><div class="kql">The key question</div><p>How do you present national assessment data so that researchers, policymakers, and the public can actually <em style="font-style:normal;color:var(--blue)">use</em> it, and get external probabilistic AI systems to accurately and reliably reference and work with the data?</p></div>
+<h2 id="constraints">Constraints</h2>
+<div class="ctable-wrap"><table class="ctable"><tbody><tr><th>Timeline</th><td>Synthesis had to be <b>fast enough to inform live stakeholder conversations</b>, not delivered weeks later.</td></tr><tr><th>Stakeholders</th><td><b>30+ federal, state, and district stakeholders</b>, each with institutional priorities that felt non-negotiable.</td></tr><tr><th>Data / domain</th><td>A <b>vast secondary literature</b> to synthesize, plus public open-data dynamics outside anyone&rsquo;s control.</td></tr><tr><th>Business need</th><td>An undefined scope risked <b>delivering nothing usable</b>. The work needed a defensible, prioritized direction before design and build could start.</td></tr></tbody></table></div>
+<div class="fig fig-photo"><img src="assets/EdFirst/naep-workshop-full.png?v=2" alt="Stakeholders scoring concepts on a sticky-note grid during the scope-setting workshop" loading="lazy"></div><div class="figcap">SCOPE-SETTING WORKSHOP · REFRAMED PRIORITIZATION CRITERIA</div>
+<h2 id="decisions">Key decisions</h2>
+<p>With no scope and a politically complex group, every choice had to hold up to stakeholders who could each veto it. Eight decisions turned an open mandate into a defensible direction.</p>
+<div class="decision"><div class="dl">Decision #1: Rename the criteria</div><p>With standard labels like &ldquo;high priority,&rdquo; thirty stakeholders would have ranked everything equally and the workshop would have decided nothing. <b>Rewriting the criteria language forced real differentiation</b> and surfaced actual tradeoffs. The scope it produced has held for the rest of the engagement.</p></div><div class="decision"><div class="dl">Decision #2: Cut everything else</div><p>The workshop produced a clear commitment: focus on meaningful AI integration and real data use cases. <b>Everything else was explicitly deferred</b>, in writing, with stakeholders in the room.</p></div><div class="decision"><div class="dl">Decision #3: Build past the bottleneck</div><p>Rather than accept the synthesis bottleneck on a vast secondary literature, <b>I built an automation workflow converting spreadsheet rows into structured sources for NotebookLM</b>. The team got synthesis fast enough to inform live stakeholder conversations.</p></div><div class="decision"><div class="dl">Decision #4: Sensitive interviews never leave the machine</div><p>The stakeholder interviews were too sensitive to send to a third-party API, and too valuable to leave as static transcripts. <b>I built a fully local RAG pipeline &mdash; transcripts embedded into a vector database, retrieval feeding a local LLM</b> &mdash; so the team could interrogate synthesized stakeholder perspectives on demand, with the data never leaving the machine. When others needed access, I exposed the app through a tunnel instead of moving the data.</p></div><div class="decision"><div class="dl">Decision #5: Open data cannot be controlled</div><p>Stakeholders wanted to prevent misreads by gating downloads and adding caveats to every chart. It's an understandable instinct, and years of coverage show it doesn't work: <b>once the data is public, interpretation belongs to whoever opens the file.</b> Rankings get cherry-picked, headlines outrun the methodology, and no disclaimer survives contact with a deadline. So we stopped fighting it and started designing for it.</p></div><div class="decision"><div class="dl">Decision #6: Meet misreads where they start</div><p>That reframe became the design brief for the AI layer. <b>Uncertainty is drawn inside the visualization itself, and methodological context appears at the point of use.</b> When a query invites misinterpretation, the LLM redirects it toward linked sources and plain-language explainers rather than answering badly. Friction moved into the answers, where it helps, and out of the access, where it never did.</p></div><div class="decision"><div class="dl">Decision #7: Use cases over capability</div><p>The team conducted primary research with 20+ stakeholders and studied what people were actually building with the publicly available data, <b>grounding the AI integration strategy in real use cases instead of model capability.</b></p></div><div class="decision"><div class="dl">Decision #8: Facilitate every transition</div><p>A second workshop with 30+ high-level stakeholders translated research findings into solution specifications, <b>keeping stakeholder input directly shaping the prototype direction</b> across a politically complex group.</p></div>
+<div class="fig fig-photo"><img src="assets/EdFirst/naep-workshop-2-web.jpg" alt="Stakeholder reviewing prioritization criteria posters during the second workshop" loading="lazy"></div><div class="figcap">SECOND STAKEHOLDER WORKSHOP · FINDINGS INTO SOLUTION SPECIFICATIONS</div>
+<h2 id="measure">How I measured success</h2>
+<p>The engagement is still live, so the measures so far are <b>alignment and grounding</b> rather than a usage metric. The alignment measure was concrete: <b>thirty-plus stakeholders leaving with a shared, prioritized scope that did not exist when the engagement started</b>, produced live in facilitated workshops rather than asserted in a deck afterward.</p>
+<p>The grounding measure was <b>the research base behind every recommendation</b>: primary research with 20+ stakeholders plus a study of what people actually build with the publicly available data, so the AI strategy could be <b>defended with evidence of real demand</b>.</p>
+<div class="fig fig-photo"><img src="assets/EdFirst/post-workshop-synthesis.png" alt="Sankey diagram mapping qualitative coding through synthesis themes to design concepts" loading="lazy"></div><div class="figcap">POST-WORKSHOP SYNTHESIS · QUALITATIVE CODING TO DESIGN CONCEPTS</div>
+<h2 id="solution">The solution</h2>
+<p>The engagement has produced <b>prototypes and implementation roadmaps</b> for how the data is stored and presented across its different user types, grounded in actual user needs, data visualization best practices, and the wide range of data literacy across the stakeholder population. I am designing and building the prototypes themselves, including <b>LLM-powered views that surface prediction uncertainty over longitudinal data</b> and personalized tools for researchers and policymakers. Underneath the interface work sits the data plumbing: <b>schemas for how assessment results and their uncertainty are structured across user types</b>, and the retrieval layer that grounds every AI response in the released data rather than the model&rsquo;s memory.</p>
+<p>The AI integration strategy was <b>scoped to specific, researched use cases</b>. It came paired with recommendations for data structuring, visualization, and analysis, so the strategy has a concrete path to implementation rather than living as a slide.</p>
+<div class="fig fig-photo"><img src="assets/EdFirst/concept-1.png" alt="AI collaboration design concept: LLM responses surfacing uncertainty with linked sources and methodological guidance" loading="lazy"></div><div class="figcap">AI COLLABORATION CONCEPT · LLM RESPONSES SURFACING UNCERTAINTY</div>
+<div class="fig fig-photo"><img src="assets/EdFirst/concept-2.png" alt="NAEP IO prototype: data input and output views for presenting assessment data" loading="lazy"></div><div class="figcap">DATA PRESENTATION PROTOTYPE</div>
+<h2 id="outcomes">Outcomes</h2>
+<div class="metrics">
+<div><div class="num">500K+</div><div class="lbl">students whose assessment data the recommendations shape</div></div>
+<div><div class="num">30+</div><div class="lbl">federal, state, and district stakeholders aligned on scope and next steps</div></div>
+</div>
+<p>Stakeholders left with a shared understanding of open data dynamics and a concrete set of prioritized next steps. Work continues through December 2026.</p>
+<h2 id="next">What I would do next</h2>
+<ul class="next-list">
+<li><b>Test the prototypes with real district users.</b> The roadmaps define what to build; instrumented testing across data-literacy tiers would let the AI recommendations be revised against usage evidence rather than workshop consensus.</li>
+<li><b>Publish an interpretation guide.</b> The open-data reframe implied a deliverable that never got scoped. It would be cheaper than any interface change, and it reaches the misinterpretation problem directly.</li>
+<li><b>Define ownership for data freshness.</b> The public data is only as useful as it is current; someone has to own keeping the presentation layer in step with new releases.</li>
+</ul>
+<nav class="case-next">
+<a href="#" onclick="history.back();return false">← All work</a>
+<a class="nx" href="case-globallogic.html"><span class="nlbl">Next</span>Five weeks to a deployed multi-agent system →</a>
+</nav>
+</main>
+</div>
+<section class="endslab" id="contact">
+  <a class="fx-big" href="mailto:apetrone@hawk.illinoistech.edu" aria-label="Email Angela — let's work together">
+    <span class="fx-track"><span>Let&rsquo;s work together&nbsp;—&nbsp;</span><span aria-hidden="true">Let&rsquo;s work together&nbsp;—&nbsp;</span></span>
+  </a>
+  <div class="wrap fx-mid">
+    <nav class="fx-links" aria-label="Social">
+      <a href="https://www.linkedin.com/in/apetrone02" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/avgelix" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+      <button type="button" id="openChatFoot">Ask my AI <span aria-hidden="true">✦</span></button>
+    </nav>
+    <p class="fx-note"><span class="foot-dot" aria-hidden="true"></span>I&rsquo;m open to full-time roles starting January 2027 —<br>and I&rsquo;m always free for a coffee.</p>
+  </div>
+  <div class="wrap fx-base">
+    <a href="mailto:apetrone@hawk.illinoistech.edu">apetrone@hawk.illinoistech.edu</a>
+    <span>© <span id="year">2026</span> Crafted by Angela Petrone</span>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">↑ Back to top</a>
+  </div>
+</section>
+
+<div class="aichat" id="aichat" hidden aria-modal="true" role="dialog" aria-label="Chat with Angela's AI">
+  <div class="aic-amb" aria-hidden="true"></div>
+  <div class="aic-glow" id="aicGlow" aria-hidden="true"></div>
+  <div class="aic-bar">
+    <span class="aic-name">Angela&nbsp;Petrone <span class="aic-sub">· AI</span></span>
+    <button class="aic-close" id="closeChat" aria-label="Close chat">Close <span aria-hidden="true">×</span></button>
+  </div>
+  <div class="aic-scroll" id="aicScroll">
+    <div class="aic-thread" id="aicThread">
+      <div class="aic-msg aic-intro">
+        <p><strong>I'm Angela Petrone's AI assistant.</strong> Ask me anything about her work, her thinking, or how she builds — I'll answer the way she would.</p>
+        <p>Angela is a product builder and researcher who takes problems nobody has scoped yet and turns them into things teams can build, working end-to-end across engineering, design, research, and strategy.</p>
+        <p>Right now she's an <strong>AI Product Builder at GlobalLogic</strong>, where she shipped a multi-agent sales system solo in 5 weeks. She's validated clinical AI at <span class="aic-hl">UChicago Medicine</span>, shipped AI knowledge management at <span class="aic-hl">Method</span>, and shaped a federal data product at <span class="aic-hl">Education First</span>.</p>
+        <p>Between projects she builds her own tools: live experiments, local RAG pipelines, Chrome extensions.</p>
+        <p>Reach her at <a href="mailto:apetrone@hawk.illinoistech.edu">apetrone@hawk.illinoistech.edu</a>, <a href="https://www.linkedin.com/in/apetrone02" target="_blank" rel="noopener">LinkedIn ↗</a>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="aic-dock">
+    <div class="aic-chips" id="aicChips">
+      <button class="aic-chip" data-q="what-pm">What do you do?</button>
+      <button class="aic-chip" data-q="intelligence">How do you define intelligence in the age of AI?</button>
+      <button class="aic-chip" data-q="lab">What do you build in your spare time?</button>
+      <button class="aic-chip" data-q="last-project">What is the last project you worked on?</button>
+    </div>
+    <form class="aic-form" id="aicForm">
+      <input class="aic-input" id="aicInput" type="text" autocomplete="off" placeholder="Ask me about my work or how I think…" aria-label="Ask a question">
+      <button class="aic-send" type="submit" aria-label="Send">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+  </div>
+</div>
+
+<script src="main.js?v=45"></script>
+</body>
+</html>

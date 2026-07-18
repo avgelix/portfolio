@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Case study: AI knowledge management for a 300-person consultancy — DVF workshop facilitation, weekly user testing, and a platform that cut document discovery from 5–6 hours to under 3 minutes.">
+<title>From tribal knowledge to institutional memory | Angela Petrone</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%23141419"/><text x="32" y="44" font-family="Georgia,serif" font-size="36" font-style="italic" fill="white" text-anchor="middle">A</text></svg>'>
+<link rel="stylesheet" href="case.css?v=68">
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html#top" class="nav-brand">
+      <span class="nav-mark" aria-hidden="true"></span>
+      <span class="nav-name">Angela&nbsp;Petrone</span><span class="nav-pm" aria-hidden="true">Builder &amp; Researcher</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#lab">Lab</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#writing">Writing</a>
+      <a href="index.html#approach">Approach</a>
+      <a href="#contact" class="nav-cta">Contact <span class="arr" aria-hidden="true">↗</span></a>
+      <button class="nav-ai" id="openChat" aria-label="Chat with Angela's AI" title="Ask my AI anything">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3l1.6 5.2a3 3 0 0 0 2.2 2.2L21 12l-5.2 1.6a3 3 0 0 0-2.2 2.2L12 21l-1.6-5.2a3 3 0 0 0-2.2-2.2L3 12l5.2-1.6a3 3 0 0 0 2.2-2.2L12 3z" fill="currentColor"/>
+          <path d="M19 4.2l.5 1.6.5.2-.5.2-.5 1.6-.5-1.6-.5-.2.5-.2.5-1.6z" fill="currentColor"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+<div class="layout">
+<aside class="toc">
+<div class="toc-title">In this case study</div>
+<ul class="toc-list">
+<li><a href="#problem"><span class="n">01</span>The problem</a></li>
+<li><a href="#constraints"><span class="n">02</span>Constraints</a></li>
+<li><a href="#decisions"><span class="n">03</span>Key decisions</a></li>
+<li><a href="#measure"><span class="n">04</span>How I measured success</a></li>
+<li><a href="#solution"><span class="n">05</span>The solution</a></li>
+<li><a href="#outcomes"><span class="n">06</span>Outcomes</a></li>
+<li><a href="#next"><span class="n">07</span>What I would do next</a></li>
+</ul>
+<div class="toc-meta">
+<div class="lbl">Role</div><div class="val">Product Design Resident @ <a href="https://www.method.com" target="_blank" rel="noopener">Method</a></div>
+<div class="lbl">Time</div><div class="val">3 months</div>
+<div class="lbl">Team</div><div class="val">15-person multidisciplinary team</div>
+<div class="lbl">Skills</div><div class="val">Product scoping, workshop design and facilitation, enterprise user research, prioritization</div>
+</div>
+</aside>
+<main>
+<div class="case-head"><div class="case-logo"><img src="assets/logos/method-gray.png" alt="Method"></div><span class="case-cat">Enterprise SaaS</span></div>
+<h1>From tribal knowledge to institutional memory</h1>
+<div class="chips"><span class="chip">ENTERPRISE SAAS</span><span class="chip">AI KNOWLEDGE MANAGEMENT</span><span class="chip">SHIPPED · IN USE 1 YEAR ON</span></div>
+<p class="case-sub">Document discovery dropped from 5&ndash;6 hours to under 3 minutes. Shipped in 3 months with a C-suite-backed adoption strategy, and still in use at Method a year later.</p>
+
+<h2 id="problem">The problem</h2>
+<p>Method is a design and innovation consultancy with over 300 people. Projects turn around fast and expertise sits in silos, so institutional knowledge lived in people rather than systems: Slack messages, protected Drive links in obscure folders, informal relationships with long-tenured employees. When people left, their expertise left with them.</p>
+<p>Everyone agreed on the problem. What nobody had was a picture of how it actually played out across 300-plus people, what to build about it, or how to get stakeholders with competing priorities behind one direction. I was part of a 15-person team that took this from research to shipped product in 3 months. My piece was the stakeholder alignment work, which is what determined what got built.</p>
+<div class="keyq"><div class="kql">The key question</div><p>What should we build to make institutional knowledge outlast the people who hold it? And how do we get a divided room of 20+ stakeholders to commit to it?</p></div>
+<h2 id="constraints">Constraints</h2>
+<div class="ctable-wrap"><table class="ctable"><tbody><tr><th>Timeline</th><td><b>3 months</b> from research to shipped. Every alignment failure would have cost build time directly.</td></tr><tr><th>Stakeholders</th><td><b>20+ stakeholders including C-suite</b>, each with competing priorities and different instincts about the solution.</td></tr><tr><th>Tech stack</th><td>Any solution had to <b>integrate with Method&rsquo;s existing Google Drive infrastructure</b>.</td></tr><tr><th>Business need</th><td>Expertise was <b>leaving with departing employees</b>, and prior knowledge tools had seen their ROI collapse.</td></tr></tbody></table></div>
+<div class="fig fig-photo"><video src="assets/Method/prioritization-workshop.mp4" autoplay loop muted playsinline aria-label="Animated walkthrough of the DVF prioritization board with concept scoring"></video></div><div class="figcap">DVF PRIORITIZATION EXERCISE · CONCEPT SCORING</div>
+<h2 id="decisions">Key decisions</h2>
+<p>In a room of twenty-plus stakeholders, the wrong process builds the wrong product. Five decisions determined what got built and what got cut.</p>
+<div class="decision"><div class="dl">Decision #1: Score before discussing</div><p>The DVF workshop I designed and facilitated scored every concept on desirability, viability, and feasibility <b>before open discussion was allowed</b>. That way the loudest voice in the room, C-suite included, couldn't set the roadmap before the numbers had their say.</p></div><div class="decision"><div class="dl">Decision #2: Near bets vs far bets</div><p>Instead of crowning a single winning concept, the workshop sorted ideas into <b>a roadmap structure: what to build now and what to build later.</b> That split held all the way to shipping.</p></div><div class="decision"><div class="dl">Decision #3: Surface the dependency</div><p>The workshop revealed that Google Drive integration was <b>the condition under which any AI layer would actually get adopted</b>, not a nice-to-have. That reframing cut the solution space down to something buildable.</p></div><div class="decision"><div class="dl">Decision #4: Change management as a requirement</div><p>C-suite alignment created organizational commitment to a top-down adoption strategy with champions and company-wide initiatives. <b>We treated it as a product requirement</b>, and without that session this piece would have been cut.</p></div><div class="decision"><div class="dl">Decision #5: Test weekly, not at the end</div><p>Rather than validating once at the end, <b>we ran user testing on mockups every week throughout development</b>. Less rework, and engineering stayed aligned with what users actually needed.</p></div>
+<div class="fig fig-photo"><video src="assets/Method/codesign-workshop.mp4" autoplay loop muted playsinline aria-label="Animated walkthrough of the co-creation ideation workshop board"></video></div><div class="figcap">CO-CREATION IDEATION WORKSHOP · WHERE THE CONCEPTS CAME FROM</div>
+<h2 id="measure">How I measured success</h2>
+<p>We measured <b>document discovery time</b>. Knowledge living in people meant finding it was slow, and slow is what eventually made people stop looking. We captured <b>a baseline through user research before anything was built</b> (5 to 6 hours), then measured again after the platform shipped: under 3 minutes.</p>
+<p>Measuring the baseline first, with the same research method, is <b>what gives the before-and-after any meaning</b>. The weekly mockup testing did a second job as measurement: by the time discovery time was measured at the end, it was <b>confirming decisions already validated along the way</b>.</p>
+<div class="fig fig-photo"><img src="assets/Method/method-hifi-board-web.jpg" alt="Board of hi-fi mockup iterations across weekly testing rounds" loading="lazy"></div><div class="figcap">HI-FI MOCKUP ITERATIONS · TESTED WEEKLY THROUGHOUT DEVELOPMENT</div>
+<h2 id="solution">The solution</h2>
+<p>The platform did two jobs. For retrieval, <b>conversational and smart search return answers with cited sources</b>, replacing the hunt through Slack threads and obscure Drive folders. For input, dropping in a document or link <b>auto-completes its title, domain, topic, client, and deliverable type</b> against a knowledge structure the team defined. The system stays organized without depending on anyone to tag things by hand.</p>
+<p>It integrated with Method&rsquo;s existing Google Drive infrastructure and shipped with a defined knowledge hierarchy, naming conventions, roles, and <b>a C-suite-backed change management plan delivered alongside the tool</b> rather than after it.</p>
+<div class="fig fig-photo"><img src="assets/Method/UI.png" alt="Method NEXO interface: conversational search with recommended results" loading="lazy"></div><div class="figcap">AI-ASSISTED RETRIEVAL WITH CITED SOURCES</div>
+<h2 id="outcomes">Outcomes</h2>
+<div class="metrics">
+<div><div class="num">5&ndash;6h → &lt;3min</div><div class="lbl">document discovery time through AI-assisted retrieval with cited sources; baseline and outcome both measured through user research</div></div>
+<div><div class="num">1 year on</div><div class="lbl">shipped in 3 months, and still in use at Method a year later (they've kept iterating on it)</div></div>
+</div>
+<p>Ad-hoc knowledge sharing was replaced by a system the company committed to adopting from the top down.</p>
+<h2 id="next">What I would do next</h2>
+<ul class="next-list">
+<li><b>Instrument retrieval directly.</b> The discovery-time result was measured at handoff; search success rate, time-to-document, and re-ask frequency would make the metric continuous instead of dependent on periodic research.</li>
+<li><b>Track knowledge freshness.</b> The original failure mode wasn't bad search but content going stale; a freshness metric tied to the intelligent-input pipeline guards against the gradual decay that kills these systems.</li>
+<li><b>Revisit the far-future bets.</b> The workshop deferred them on purpose; a year of real adoption data is the right moment to reopen them.</li>
+</ul>
+<nav class="case-next">
+<a href="#" onclick="history.back();return false">← All work</a>
+<a class="nx" href="case-naep.html"><span class="nlbl">Next</span>Designing for data in the open →</a>
+</nav>
+</main>
+</div>
+<section class="endslab" id="contact">
+  <a class="fx-big" href="mailto:apetrone@hawk.illinoistech.edu" aria-label="Email Angela — let's work together">
+    <span class="fx-track"><span>Let&rsquo;s work together&nbsp;—&nbsp;</span><span aria-hidden="true">Let&rsquo;s work together&nbsp;—&nbsp;</span></span>
+  </a>
+  <div class="wrap fx-mid">
+    <nav class="fx-links" aria-label="Social">
+      <a href="https://www.linkedin.com/in/apetrone02" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/avgelix" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+      <button type="button" id="openChatFoot">Ask my AI <span aria-hidden="true">✦</span></button>
+    </nav>
+    <p class="fx-note"><span class="foot-dot" aria-hidden="true"></span>I&rsquo;m open to full-time roles starting January 2027 —<br>and I&rsquo;m always free for a coffee.</p>
+  </div>
+  <div class="wrap fx-base">
+    <a href="mailto:apetrone@hawk.illinoistech.edu">apetrone@hawk.illinoistech.edu</a>
+    <span>© <span id="year">2026</span> Crafted by Angela Petrone</span>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">↑ Back to top</a>
+  </div>
+</section>
+
+<div class="aichat" id="aichat" hidden aria-modal="true" role="dialog" aria-label="Chat with Angela's AI">
+  <div class="aic-amb" aria-hidden="true"></div>
+  <div class="aic-glow" id="aicGlow" aria-hidden="true"></div>
+  <div class="aic-bar">
+    <span class="aic-name">Angela&nbsp;Petrone <span class="aic-sub">· AI</span></span>
+    <button class="aic-close" id="closeChat" aria-label="Close chat">Close <span aria-hidden="true">×</span></button>
+  </div>
+  <div class="aic-scroll" id="aicScroll">
+    <div class="aic-thread" id="aicThread">
+      <div class="aic-msg aic-intro">
+        <p><strong>I'm Angela Petrone's AI assistant.</strong> Ask me anything about her work, her thinking, or how she builds — I'll answer the way she would.</p>
+        <p>Angela is a product builder and researcher who takes problems nobody has scoped yet and turns them into things teams can build, working end-to-end across engineering, design, research, and strategy.</p>
+        <p>Right now she's an <strong>AI Product Builder at GlobalLogic</strong>, where she shipped a multi-agent sales system solo in 5 weeks. She's validated clinical AI at <span class="aic-hl">UChicago Medicine</span>, shipped AI knowledge management at <span class="aic-hl">Method</span>, and shaped a federal data product at <span class="aic-hl">Education First</span>.</p>
+        <p>Between projects she builds her own tools: live experiments, local RAG pipelines, Chrome extensions.</p>
+        <p>Reach her at <a href="mailto:apetrone@hawk.illinoistech.edu">apetrone@hawk.illinoistech.edu</a>, <a href="https://www.linkedin.com/in/apetrone02" target="_blank" rel="noopener">LinkedIn ↗</a>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="aic-dock">
+    <div class="aic-chips" id="aicChips">
+      <button class="aic-chip" data-q="what-pm">What do you do?</button>
+      <button class="aic-chip" data-q="intelligence">How do you define intelligence in the age of AI?</button>
+      <button class="aic-chip" data-q="lab">What do you build in your spare time?</button>
+      <button class="aic-chip" data-q="last-project">What is the last project you worked on?</button>
+    </div>
+    <form class="aic-form" id="aicForm">
+      <input class="aic-input" id="aicInput" type="text" autocomplete="off" placeholder="Ask me about my work or how I think…" aria-label="Ask a question">
+      <button class="aic-send" type="submit" aria-label="Send">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+  </div>
+</div>
+
+<script src="main.js?v=68"></script>
+</body>
+</html>
