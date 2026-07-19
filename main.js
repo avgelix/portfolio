@@ -3,6 +3,33 @@
    ========================================================= */
 (function () {
   'use strict';
+
+  /* ---- PostHog analytics (cookieless) ----------------------------------
+     Setup (one time):
+       1. Create a free project at posthog.com
+       2. Paste your Project API key below — PostHog: Settings → Project →
+          "Project API key" (starts with "phc_")
+       3. If you chose the EU data region, change POSTHOG_HOST to
+          'https://eu.i.posthog.com'
+     persistence:'memory' = cookieless — nothing is stored on visitors'
+     devices, so no consent banner is needed. Analytics stay off until a
+     real key is pasted. -------------------------------------------------- */
+  var POSTHOG_KEY = 'phc_u9F64veJFLjNdkbE76DCAsms4AP3cwuRtgsKzx3akbF6';
+  var POSTHOG_HOST = 'https://us.i.posthog.com';
+  if (POSTHOG_KEY.indexOf('phc_') === 0) {
+    var ph = document.createElement('script');
+    ph.async = true;
+    ph.src = POSTHOG_HOST + '/static/array.js';
+    ph.onload = function () {
+      if (window.posthog) {
+        posthog.init(POSTHOG_KEY, {
+          api_host: POSTHOG_HOST,
+          persistence: 'memory'
+        });
+      }
+    };
+    document.head.appendChild(ph);
+  }
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---- year ---- */
