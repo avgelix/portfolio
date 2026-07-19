@@ -24,7 +24,8 @@
       if (window.posthog) {
         posthog.init(POSTHOG_KEY, {
           api_host: POSTHOG_HOST,
-          persistence: 'memory'
+          persistence: 'memory',
+          capture_pageleave: true   // accurate session duration + bounce rate
         });
       }
     };
