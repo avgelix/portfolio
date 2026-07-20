@@ -800,3 +800,16 @@ html{scrollbar-gutter:stable}
   .paper-lead-story{padding:24px 0}
   .paper-col article+article{margin-top:24px;padding-top:24px}
 }
+
+/* v81: honest-data tags on Lab cards (dashboard stats + Voice Of answers are illustrative) */
+.viz-tag{display:inline-block;font:600 9px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a8a90;border:1px solid var(--line-2);border-radius:999px;padding:4px 8px;white-space:nowrap}
+.vc-seg~.viz-tag{margin-left:8px}
+.bvv-foot{margin-top:10px;text-align:right}
+
+/* v82-83: sample-data tag shares the title row (flex), so it can never overlap */
+.bento-tt{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.bento-tt .viz-tag{flex:none}
+
+/* v84: crawlable card-face links on Lab cards */
+.bento-go{align-self:flex-start;margin-top:14px;font:600 12.5px/1 Inter,sans-serif;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line-2);padding-bottom:3px;transition:border-color .2s,opacity .2s}
+.bento-go:hover{border-color:var(--ink)}
