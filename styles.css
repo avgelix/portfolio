@@ -775,3 +775,28 @@ html{scrollbar-gutter:stable}
    (offset = kicker line height ~15px + its 24px margin) */
 .about-side{padding-top:39px}
 @media(max-width:920px){.about-side{padding-top:0}}
+
+/* v79: Writing section, quiet broadsheet (option B).
+   Title switches to the site display font; heavy rules become single
+   hairlines; kickers go gray; gutters and story spacing roughly double;
+   hover fades instead of underlining. */
+.paper-title{font-family:var(--disp);font-weight:700;font-size:clamp(28px,3.8vw,50px);line-height:.99;letter-spacing:-.035em}
+.paper-title em{font-size:.96em}
+.paper-kicker{color:var(--ink-2)}
+.pk{color:var(--ink-2)}
+.paper-head{padding:16px 0 34px}
+.paper-lead{border-left:0;padding-left:0}
+.paper-date{border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2);padding:14px 0;font-size:10px;letter-spacing:.18em}
+.paper-grid>*{padding:44px 40px 46px;border-left:1px solid var(--line-2)}
+.paper-grid>:first-child{border-left:0;padding-left:0}
+.paper-grid>:last-child{padding-right:0}
+.paper-lead-story{padding:44px 40px 46px 0}
+.paper-col article+article{margin-top:38px;padding-top:38px;border-top:1px solid var(--line-2)}
+.paper-col p{font-size:12.5px}
+.paper h3{transition:opacity .2s}
+.paper a:hover h3{text-decoration:none;opacity:.55}
+@media(max-width:900px){
+  .paper-grid>*{border-left:0;padding:24px 0}
+  .paper-lead-story{padding:24px 0}
+  .paper-col article+article{margin-top:24px;padding-top:24px}
+}
