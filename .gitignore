@@ -4,6 +4,7 @@
 
 # Working files (not part of the site)
 footer-options*.html
+writing-options*.html
 portfolio-audit.md
 cleanup-before-deploy.md
 
