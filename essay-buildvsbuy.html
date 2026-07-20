@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%23141419"/><text x="32" y="44" font-family="Georgia,serif" font-size="36" font-style="italic" fill="white" text-anchor="middle">A</text></svg>'>
-<link rel="stylesheet" href="case.css?v=78">
-<link rel="stylesheet" href="essay.css?v=78">
+<link rel="stylesheet" href="case.css?v=80">
+<link rel="stylesheet" href="essay.css?v=80">
 </head>
 <body>
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -70,25 +70,25 @@
       <p class="em-dek">When one person can ship custom infrastructure in a weekend, the old reasons to buy off-the-shelf stop holding. A note on what that changes for product teams.</p>
       
       <h2 id="abstract">Abstract</h2>
-      <p class="drop">The classic buy-versus-build decision rested on a stable assumption: building is expensive and slow, so you buy unless the capability is core. AI-assisted development has broken that assumption. When one person can stand up custom infrastructure in a weekend, the cost side of the equation collapses<sup class="fn"><a href="#n1" id="r1">1</a></sup><span class="fnote"><span class="fn-n">1</span>I have shipped several of these myself &mdash; a local RAG pipeline, an LLM-backed Chrome extension, an analysis dashboard &mdash; each in days.</span> and the old reflex to buy off-the-shelf stops holding.</p>
+      <p class="drop">The classic buy-versus-build decision rested on a stable assumption. Building is expensive and slow, so you buy unless the capability is core. AI-assisted development has broken that assumption. When one person can stand up custom infrastructure in a weekend, the cost side of the equation collapses<sup class="fn"><a href="#n1" id="r1">1</a></sup><span class="fnote"><span class="fn-n">1</span>I have shipped several of these myself &mdash; a local RAG pipeline, an LLM-backed Chrome extension, an analysis dashboard &mdash; each in days.</span> and the old reflex to buy off-the-shelf stops holding.</p>
 
       <h2 id="oldcalc">I. The old calculus</h2>
-      <p class="drop">Transaction-cost economics gave us the tidy version: make it in-house when coordination is cheaper than contracting; buy when the market does it better.<sup class="fn"><a href="#n2" id="r2">2</a></sup><span class="fnote"><span class="fn-n">2</span>Coase (1937), later Williamson: the firm&rsquo;s boundary as a question of transaction costs.</span> For software, &ldquo;build&rdquo; carried a heavy fixed cost, so the default for anything non-core was to buy a SaaS seat and move on.</p>
-      <p>The calculus was so stable it stopped being a decision. Procurement processes, vendor comparisons, and the entire SaaS pricing model grew up around one assumption: custom software is a luxury reserved for whatever a company calls core. Everything else, you rent.</p>
+      <p class="drop">Transaction-cost economics gave us the tidy version. Make it in-house when coordination is cheaper than contracting; buy when the market does it better.<sup class="fn"><a href="#n2" id="r2">2</a></sup><span class="fnote"><span class="fn-n">2</span>Coase (1937), later Williamson: the firm&rsquo;s boundary as a question of transaction costs.</span> For software, &ldquo;build&rdquo; carried a heavy fixed cost, so the default for anything non-core was to buy a SaaS seat and move on.</p>
+      <p>The calculus was so stable it stopped being a decision. Procurement processes, vendor comparisons, and the entire SaaS pricing model grew up around one assumption, that custom software is a luxury reserved for whatever a company calls core. Everything else, you rent.</p>
 
       <h2 id="changed">II. What changed</h2>
-      <p class="drop">AI-assisted building drives the marginal cost of a bespoke tool toward the cost of specifying it well. The <span class="term">leverage</span> moved from &ldquo;who can write the code&rdquo; to &ldquo;who can define the problem precisely enough for a model to help build it.&rdquo; That's a product skill, not only an engineering one.</p>
-      <p>The cost collapse is measured, not anecdotal. In a controlled experiment, developers with an AI pair programmer completed a standard task 55.8% faster than the control group.<sup class="fn"><a href="#n4" id="r4">4</a></sup><span class="fnote"><span class="fn-n">4</span>Peng et al., &ldquo;The Impact of AI on Developer Productivity: Evidence from GitHub Copilot,&rdquo; arXiv:2302.06590 (2023).</span> Field studies with consultants found double-digit quality and speed gains inside the technology's frontier, alongside a warning this essay takes seriously: performance degrades when people lean on the tools outside that frontier.<sup class="fn"><a href="#n5" id="r5">5</a></sup><span class="fnote"><span class="fn-n">5</span>Dell&rsquo;Acqua et al., &ldquo;Navigating the Jagged Technological Frontier,&rdquo; Harvard Business School Working Paper 24-013 (2023).</span></p>
-      <p>The consequence is that a lot of things that used to be obviously &ldquo;buy&rdquo; are now plausibly &ldquo;build&rdquo;: the internal tool that fits your exact workflow, the eval no vendor sells, the glue between two systems.</p>
-      <p>I keep running this experiment on myself. A local RAG pipeline for interview data, an LLM-backed Chrome extension, an analysis dashboard: each was a weekend or a few evenings, each replaced either a subscription or a manual process, and each fits its job better than anything I could have bought. The pattern held at work too. The eval suite for a multi-agent system I shipped was itself a build decision no vendor could have made for me.</p>
+      <p class="drop">AI-assisted building drives the marginal cost of a bespoke tool toward the cost of specifying it well. The <span class="term">leverage</span> moved from &ldquo;who can write the code&rdquo; to &ldquo;who can define the problem precisely enough for a model to help build it.&rdquo; That is a product skill as much as an engineering one.</p>
+      <p>The cost collapse is measured rather than anecdotal. In a controlled experiment, developers with an AI pair programmer completed a standard task 55.8% faster than the control group.<sup class="fn"><a href="#n4" id="r4">4</a></sup><span class="fnote"><span class="fn-n">4</span>Peng et al., &ldquo;The Impact of AI on Developer Productivity: Evidence from GitHub Copilot,&rdquo; arXiv:2302.06590 (2023).</span> Field studies with consultants found double-digit quality and speed gains inside the technology's frontier, alongside a warning this essay takes seriously. Performance degrades when people lean on the tools outside that frontier.<sup class="fn"><a href="#n5" id="r5">5</a></sup><span class="fnote"><span class="fn-n">5</span>Dell&rsquo;Acqua et al., &ldquo;Navigating the Jagged Technological Frontier,&rdquo; Harvard Business School Working Paper 24-013 (2023).</span></p>
+      <p>The consequence is that a lot of things that used to be obviously &ldquo;buy&rdquo; are now plausibly &ldquo;build&rdquo;. The internal tool that fits your exact workflow, the eval no vendor sells, the glue between two systems.</p>
+      <p>I keep running this experiment on myself. A local RAG pipeline for interview data, an LLM-backed Chrome extension, an analysis dashboard. Each was a weekend or a few evenings, each replaced either a subscription or a manual process, and each fits its job better than anything I could have bought. The pattern held at work too. The eval suite for a multi-agent system I shipped was itself a build decision no vendor could have made for me.</p>
 
       <h2 id="failures">III. The new failure modes</h2>
       <p class="drop">The old risk of building was that you couldn't afford to. The new risk is that you can, and so you build things you shouldn't own. A weekend tool still has to be maintained, secured, and understood by someone other than its author.<sup class="fn"><a href="#n3" id="r3">3</a></sup><span class="fnote"><span class="fn-n">3</span>The maintenance tail, not the build cost, is where cheap internal tools get expensive.</span></p>
-      <p>The second failure mode is subtler: building becomes so easy that teams skip the question of whether the problem was worth solving at all. Cheap build cost isn't a license to skip scoping. It raises the premium on it.</p>
-      <p>The jagged-frontier finding names a third: the boundary between what AI-assisted building handles well and what it quietly botches is invisible from inside the work. A team that has shipped five cheap internal tools has learned where the frontier was for those five problems, and nothing about where it sits for the sixth. Build decisions now need the same discipline as any other bet: an explicit hypothesis about why this problem is inside the frontier, checked rather than assumed.</p>
+      <p>The second failure mode is subtler. Building becomes so easy that teams skip the question of whether the problem was worth solving at all. Far from licensing teams to skip scoping, cheap build cost raises the premium on it.</p>
+      <p>The jagged-frontier finding names a third. The boundary between what AI-assisted building handles well and what it botches is invisible from inside the work. A team that has shipped five cheap internal tools has learned where the frontier was for those five problems, and nothing about where it sits for the sixth. Build decisions now need the same discipline as any other bet, an explicit hypothesis about why this problem is inside the frontier, checked rather than assumed.</p>
 
       <h2 id="heuristic">IV. A heuristic for teams</h2>
-      <p class="drop">Buy when the capability is a moving target maintained better by a market: security, payments, anything with a compliance surface. Build when the value is in the <em>fit</em>. And treat every build as a product with an owner and a maintenance plan, not a clever artifact.</p>
+      <p class="drop">Buy when the capability is a moving target maintained better by a market, like security, payments, or anything with a compliance surface. Build when the value is in the <em>fit</em>. And treat every build as a product with an owner and a maintenance plan rather than a clever artifact.</p>
 
       <h2 id="notes">Notes</h2>
       <ol class="essay-notes">
@@ -162,6 +162,6 @@
   </div>
 </div>
 
-<script src="main.js?v=78"></script>
+<script src="main.js?v=80"></script>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Actionability as an eval: measuring data products on decisions, not engagement — Angela Petrone</title>
-<meta name="description" content="Engagement and comprehension miss the thing that matters: whether someone can act on what they saw. A framework for evaluating data products on decision quality.">
+<title>Measuring data products by the decisions they enable — Angela Petrone</title>
+<meta name="description" content="Engagement and comprehension miss the thing that matters, whether someone can act on what they saw. A framework for evaluating data products on decision quality.">
 <link rel="canonical" href="https://apetrone.com/essay-actionability.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Actionability as an eval: measuring data products on decisions, not engagement — Angela Petrone">
-<meta property="og:description" content="Engagement and comprehension miss the thing that matters: whether someone can act on what they saw. A framework for evaluating data products on decision quality.">
+<meta property="og:title" content="Measuring data products by the decisions they enable — Angela Petrone">
+<meta property="og:description" content="Engagement and comprehension miss the thing that matters, whether someone can act on what they saw. A framework for evaluating data products on decision quality.">
 <meta property="og:url" content="https://apetrone.com/essay-actionability.html">
 <meta property="og:image" content="https://apetrone.com/assets/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%23141419"/><text x="32" y="44" font-family="Georgia,serif" font-size="36" font-style="italic" fill="white" text-anchor="middle">A</text></svg>'>
-<link rel="stylesheet" href="case.css?v=78">
-<link rel="stylesheet" href="essay.css?v=78">
+<link rel="stylesheet" href="case.css?v=80">
+<link rel="stylesheet" href="essay.css?v=80">
 </head>
 <body>
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -47,7 +47,7 @@
 <main>
   <div class="essay">
     <aside class="essay-rail">
-      <div class="er-title">Actionability as an Eval</div>
+      <div class="er-title">Measuring by Decisions Enabled</div>
       <div class="er-label">Writing</div>
       <nav class="er-toc">
         <a href="#abstract" class="">Abstract</a>
@@ -66,26 +66,26 @@
     </aside>
     <article class="essay-main">
       <span class="em-status">Essay</span>
-      <h1 class="em-h1">Actionability as an eval: measuring data products on decisions, not engagement</h1>
-      <p class="em-dek">Engagement and comprehension miss the thing that matters: whether someone can act on what they saw. A framework for evaluating data products on decision quality.</p>
+      <h1 class="em-h1">Measuring data products by the decisions they enable</h1>
+      <p class="em-dek">Engagement and comprehension miss the thing that matters, whether someone can act on what they saw. A framework for evaluating data products on decision quality.</p>
       
       <h2 id="abstract">Abstract</h2>
-      <p class="drop">Most data products today are evaluated on engagement and comprehension: did people look? did they understand? Both those metrics miss the thing that ultimately matters, which is whether the person could <em>act</em> on what they saw. I built an evaluation platform for this exact purpose.<sup class="fn"><a href="#n1" id="r1">1</a></sup><span class="fnote"><span class="fn-n">1</span>&ldquo;From Data to Action&rdquo; &mdash; is a live experiment with 50+ professionals already enrolled; see the Lab section.</span> This essay defines <span class="term">actionability</span> and argues it belongs at the center of how we evaluate data products.</p>
+      <p class="drop">Most data products today are evaluated on engagement and comprehension. Did people look? Did they understand? Both those metrics miss the thing that ultimately matters, which is whether the person could <em>act</em> on what they saw. I built an evaluation platform for this exact purpose.<sup class="fn"><a href="#n1" id="r1">1</a></sup><span class="fnote"><span class="fn-n">1</span>&ldquo;From Data to Action&rdquo; is a live experiment with 50+ professionals already enrolled; see the Lab section.</span> This essay defines <span class="term">actionability</span> and argues it belongs at the center of how we evaluate data products.</p>
 
       <h2 id="drift">I. Engagement is a proxy that wandered</h2>
       <p class="drop">Engagement was always a stand-in. We measured dwell time and clicks because they were easy and correlated, loosely, with value. But a metric optimized long enough stops being a proxy and starts being the target,<sup class="fn"><a href="#n2" id="r2">2</a></sup><span class="fnote"><span class="fn-n">2</span>A restatement of Goodhart&rsquo;s law for product analytics.</span> and a dashboard can be maximally engaging and still leave every decision exactly where it stood before the product was introduced.</p>
       <p>Comprehension metrics are the more respectable cousin, and they fail more subtly. A user who aces a quiz about a chart has demonstrated recall, not readiness to act. The gap between "I understood the chart" and "I made a better call because of it" is where data products actually earn or waste their existence, and neither engagement nor comprehension can fully capture it.</p>
-      <p>The visualization research community has admitted this gap in its own literature. Dimara and Stasko's audit of the field found that decision-making tasks, supposedly the point of the whole enterprise, barely appear in the task taxonomies visualization research uses to evaluate itself.<sup class="fn"><a href="#n4" id="r4">4</a></sup><span class="fnote"><span class="fn-n">4</span>Dimara and Stasko, &ldquo;A Critical Reflection on Visualization Research: Where Do Decision Making Tasks Hide?&rdquo; <i>IEEE TVCG</i> 28, no. 1 (2022): 1128&ndash;1138.</span> We built a discipline around perception and comprehension and quietly assumed decisions would follow. The assumption was never tested because the tests weren't designed for it.</p>
+      <p>The visualization research community has admitted this gap in its own literature. Dimara and Stasko's audit of the field found that decision-making tasks, supposedly the point of the whole enterprise, barely appear in the task taxonomies visualization research uses to evaluate itself.<sup class="fn"><a href="#n4" id="r4">4</a></sup><span class="fnote"><span class="fn-n">4</span>Dimara and Stasko, &ldquo;A Critical Reflection on Visualization Research: Where Do Decision Making Tasks Hide?&rdquo; <i>IEEE TVCG</i> 28, no. 1 (2022): 1128&ndash;1138.</span> We built a discipline around perception and comprehension and assumed decisions would follow. The assumption was never tested because the tests weren't designed for it.</p>
 
       <h2 id="define">II. Defining actionability</h2>
-      <p class="drop">I define <span class="term">actionability</span> as the change a data product produces in the quality of a downstream decision. This goes beyond whether the user felt informed, but whether the call they made was measurably better (more accurate, better calibrated, faster without loss of accuracy) than the call they would have made without using the product.</p>
-      <p>Measuring actionability in this sense requires two signals moving together: what users say they can do, and what their recommendations are actually worth when scored independently. Confidence without correctness is the exact trap engagement metrics walk into.</p>
-      <p>This definition of actionability is deliberately behavioral. It doesn't just care about whether the interface was delightful or whether the user felt empowered. It asks one thing: put the same person in front of the same decision with and without the product, and score the difference.</p>
+      <p class="drop">I define <span class="term">actionability</span> as the change a data product produces in the quality of a downstream decision. It goes beyond whether the user felt informed, to whether the call they made was measurably better (more accurate, better calibrated, faster without loss of accuracy) than the call they would have made without using the product.</p>
+      <p>Measuring actionability in this sense requires two signals moving together, what users say they can do and what their recommendations are actually worth when scored independently. Confidence without correctness is the exact trap engagement metrics walk into.</p>
+      <p>This definition of actionability is deliberately behavioral. Whether the interface was delightful or the user felt empowered is beside the point. It asks one thing. Put the same person in front of the same decision with and without the product, and score the difference.</p>
 
       <h2 id="measure">III. Measuring it</h2>
-      <p class="drop">The experimental shape is theoretically simple (and deceivingly hard to run well): hold the data and the task constant, vary the interface, and measure the decision quality.<sup class="fn"><a href="#n3" id="r3">3</a></sup><span class="fnote"><span class="fn-n">3</span>The 4 interface types tested span excel-style static tables, pudding-style scrollytelling narratives, interactive sandbox environments, and conversational AI experiences &mdash; all serve identical underlying data.</span></p>
+      <p class="drop">The experimental shape is theoretically simple (and deceptively hard to run well). Hold the data and the task constant, vary the interface, and measure the decision quality.<sup class="fn"><a href="#n3" id="r3">3</a></sup><span class="fnote"><span class="fn-n">3</span>The 4 interface types tested span excel-style static tables, pudding-style scrollytelling narratives, interactive sandbox environments, and conversational AI experiences &mdash; all serve identical underlying data.</span></p>
       <p>In my live experiment, 50+ professionals so far have worked the same analytical task through one of four interfaces. Each participant reports what they believe they can act on; their recommendations are then scored independently.</p>
-      <p>The conversational arm matters because it imports a known hazard. The human-AI decision literature keeps finding that assistance shifts confidence faster than it shifts accuracy, and that whether people engage critically with an AI's output is a strategic choice about effort, not a fixed trait.<sup class="fn"><a href="#n5" id="r5">5</a></sup><span class="fnote"><span class="fn-n">5</span>Vasconcelos et al., &ldquo;Explanations Can Reduce Overreliance on AI Systems During Decision-Making,&rdquo; <i>PACM HCI</i> 7, CSCW1 (2023).</span> A chat interface over data is a decision-support system whether its makers say so or not, and it should be evaluated like one.</p>
+      <p>The conversational arm matters because it imports a known hazard. The human-AI decision literature keeps finding that assistance shifts confidence faster than it shifts accuracy, and that whether people engage critically with an AI's output is a strategic choice about effort rather than a fixed trait.<sup class="fn"><a href="#n5" id="r5">5</a></sup><span class="fnote"><span class="fn-n">5</span>Vasconcelos et al., &ldquo;Explanations Can Reduce Overreliance on AI Systems During Decision-Making,&rdquo; <i>PACM HCI</i> 7, CSCW1 (2023).</span> A chat interface over data is a decision-support system whether its makers say so or not, and it should be evaluated like one.</p>
 
       <h2 id="changes">IV. What it changes</h2>
       <p class="drop">If you evaluate on <span class="term">decision quality</span> instead of engagement, a lot of received wisdom inverts. The most &ldquo;engaging&rdquo; interface is often not the most actionable. Simplicity that would lose an engagement test can win a decision test. And the product goal moves from holding attention to spending it well.</p>
@@ -162,6 +162,6 @@
   </div>
 </div>
 
-<script src="main.js?v=78"></script>
+<script src="main.js?v=80"></script>
 </body>
 </html>

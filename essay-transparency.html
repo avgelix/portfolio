@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Transparency is the product: what clinical AI gets wrong about expert users — Angela Petrone</title>
-<meta name="description" content="Surfacing every model detail backfires with specialists. What earns trust is the right information at the right moment in the workflow, not more of it.">
+<meta name="description" content="Surfacing every model detail backfires with specialists. What earns trust is the right information at the right moment in the workflow rather than more of it.">
 <link rel="canonical" href="https://apetrone.com/essay-transparency.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Transparency is the product: what clinical AI gets wrong about expert users — Angela Petrone">
-<meta property="og:description" content="Surfacing every model detail backfires with specialists. What earns trust is the right information at the right moment in the workflow, not more of it.">
+<meta property="og:description" content="Surfacing every model detail backfires with specialists. What earns trust is the right information at the right moment in the workflow rather than more of it.">
 <meta property="og:url" content="https://apetrone.com/essay-transparency.html">
 <meta property="og:image" content="https://apetrone.com/assets/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%23141419"/><text x="32" y="44" font-family="Georgia,serif" font-size="36" font-style="italic" fill="white" text-anchor="middle">A</text></svg>'>
-<link rel="stylesheet" href="case.css?v=78">
-<link rel="stylesheet" href="essay.css?v=78">
+<link rel="stylesheet" href="case.css?v=80">
+<link rel="stylesheet" href="essay.css?v=80">
 </head>
 <body>
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -67,31 +67,31 @@
     <article class="essay-main">
       <span class="em-status">Essay</span>
       <h1 class="em-h1">Transparency is the product: what clinical AI gets wrong about expert users</h1>
-      <p class="em-dek">Surfacing every model detail backfires with specialists. What earns trust is the right information at the right moment in the workflow, not more of it.</p>
+      <p class="em-dek">Surfacing every model detail backfires with specialists. What earns trust is the right information at the right moment in the workflow rather than more of it.</p>
       
       <h2 id="abstract">Abstract</h2>
-      <p class="drop">Clinical AI teams treat transparency as an amount (more exposed model internals, more confidence scores, more explanation) and assume that adding it builds trust. Working with pathologists on a diagnostic tool, I found the opposite: dumping model detail on expert users <em>reduced</em> trust, because it added cognitive load without answering the question the expert was actually asking.<sup class="fn"><a href="#n1" id="r1">1</a></sup><span class="fnote"><span class="fn-n">1</span>Drawn from a validation engagement at UChicago Medicine&rsquo;s SlideFlow Labs; see the case study on this site.</span> This essay argues that transparency isn't a quantity you add. It's a <span class="term">product</span> you design.</p>
+      <p class="drop">Clinical AI teams treat transparency as an amount (more exposed model internals, more confidence scores, more explanation) and assume that adding it builds trust. Working with pathologists on a diagnostic tool, I found the opposite. Dumping model detail on expert users <em>reduced</em> trust, because it added cognitive load without answering the question the expert was actually asking.<sup class="fn"><a href="#n1" id="r1">1</a></sup><span class="fnote"><span class="fn-n">1</span>Drawn from a validation engagement at UChicago Medicine&rsquo;s SlideFlow Labs; see the case study on this site.</span> This essay argues that transparency is a <span class="term">product</span> you design rather than a quantity you add.</p>
 
       <h2 id="reflex">I. The transparency reflex</h2>
-      <p class="drop">When a team ships an AI system into a high-stakes setting, the instinct is to make it maximally legible. Surface the features. Show the probability. Publish the confusion matrix. The reasoning is intuitive: experts are skeptical, so give them everything and let them judge.<sup class="fn"><a href="#n2" id="r2">2</a></sup><span class="fnote"><span class="fn-n">2</span>On explanation as a human, contrastive act, see Miller (2019).</span></p>
+      <p class="drop">When a team ships an AI system into a high-stakes setting, the instinct is to make it maximally legible. Surface the features. Show the probability. Publish the confusion matrix. The reasoning is intuitive. Experts are skeptical, so give them everything and let them judge.<sup class="fn"><a href="#n2" id="r2">2</a></sup><span class="fnote"><span class="fn-n">2</span>On explanation as a human, contrastive act, see Miller (2019).</span></p>
       <p>But <span class="term">transparency</span> defined as exposure assumes the bottleneck is information supply. For expert users it rarely is. A thyroid pathologist doesn't lack information; they're drowning in it. What they lack is a fast, defensible way to decide whether this particular output belongs in this particular case.</p>
-      <p>The recent human-AI interaction literature has caught up with this. Vasconcelos and colleagues showed that whether an explanation helps at all is a cost-benefit calculation the user makes in the moment: people engage with explanations when engaging is cheaper than the risk of being wrong, and ignore them otherwise.<sup class="fn"><a href="#n4" id="r4">4</a></sup><span class="fnote"><span class="fn-n">4</span>Vasconcelos et al., &ldquo;Explanations Can Reduce Overreliance on AI Systems During Decision-Making,&rdquo; <i>PACM HCI</i> 7, CSCW1 (2023).</span> Explanation isn't a substance you pour on a user. It's an offer, and experts decline expensive offers.</p>
-      <p>We watched this play out in validation sessions. The first prototype followed the reflex faithfully: model internals, confidence values, technical vocabulary. Pathologists' trust ratings landed anywhere from 1 to 3, and some declined to rate the tool at all. Nothing about the model had failed. The disclosure had.</p>
+      <p>The recent human-AI interaction literature has caught up with this. Vasconcelos and colleagues showed that whether an explanation helps at all is a cost-benefit calculation the user makes in the moment. People engage with explanations when engaging is cheaper than the risk of being wrong, and ignore them otherwise.<sup class="fn"><a href="#n4" id="r4">4</a></sup><span class="fnote"><span class="fn-n">4</span>Vasconcelos et al., &ldquo;Explanations Can Reduce Overreliance on AI Systems During Decision-Making,&rdquo; <i>PACM HCI</i> 7, CSCW1 (2023).</span> Explanation is an offer rather than a substance you pour on a user, and experts decline expensive offers.</p>
+      <p>We watched this play out in validation sessions. The first prototype followed the reflex faithfully, with model internals, confidence values, and technical vocabulary. Pathologists' trust ratings landed anywhere from 1 to 3, and some declined to rate the tool at all. Nothing about the model had failed. The disclosure had.</p>
 
       <h2 id="experts">II. What experts do with information</h2>
-      <p class="drop">Expertise is compression. A specialist has already internalized which signals matter and which are noise, so their scarce resource is attention, not data. Hand them a panel of twelve model internals and you haven't empowered them. You've handed them a second diagnostic problem on top of the first.</p>
-      <p>In sessions, the useful moments were never the raw numbers. They were the moments where the tool surfaced <em>one</em> piece of evidence, at the point in the read where a decision was being made, in the vocabulary the pathologist already used.<sup class="fn"><a href="#n3" id="r3">3</a></sup><span class="fnote"><span class="fn-n">3</span>Bussone, Stumpf, and O&rsquo;Sullivan (2015): more explanation can erode trust depending on framing and timing.</span> That isn't less transparent. It's transparency aimed at a decision.</p>
-      <p>This tracks with what the explanation literature has said for years: an explanation is a social act, contrastive and selective, not a data dump. People don't want the full causal chain. They want the answer to "why this, rather than what I expected." Design for that question and a single well-placed piece of evidence outperforms a dashboard of internals.</p>
+      <p class="drop">Expertise is compression. A specialist has already internalized which signals matter and which are noise, so their scarce resource is attention rather than data. Hand them a panel of twelve model internals and you haven't empowered them. You've handed them a second diagnostic problem on top of the first.</p>
+      <p>In sessions, the useful moments were never the raw numbers. They were the moments where the tool surfaced <em>one</em> piece of evidence, at the point in the read where a decision was being made, in the vocabulary the pathologist already used.<sup class="fn"><a href="#n3" id="r3">3</a></sup><span class="fnote"><span class="fn-n">3</span>Bussone, Stumpf, and O&rsquo;Sullivan (2015): more explanation can erode trust depending on framing and timing.</span> That is still transparency, just aimed at a decision.</p>
+      <p>This tracks with what the explanation literature has said for years. An explanation is a social act, contrastive and selective. A data dump is none of those things. People don't want the full causal chain. They want the answer to "why this, rather than what I expected." Design for that question and a single well-placed piece of evidence outperforms a dashboard of internals.</p>
 
       <h2 id="trust">III. Trust is a workflow property</h2>
-      <p class="drop">We talk about trust as a static attitude: a user either trusts a system or doesn't. In practice trust is produced moment to moment, inside a workflow, by whether the system shows up as helpful exactly when it's consulted and stays out of the way otherwise.</p>
-      <p>That reframing changes the unit of design from the model to the <span class="term">encounter</span>. The question is no longer &ldquo;how do we explain the model&rdquo; but &ldquo;what does the expert need to see at the instant they would otherwise hesitate.&rdquo; Answer that, and trust ratings move. We watched them move: after the redesign, every survey item scored a 4 or 5, from a starting point where nothing scored above 3.</p>
+      <p class="drop">We talk about trust as a static attitude. A user either trusts a system or doesn't. In practice trust is produced moment to moment, inside a workflow, by whether the system shows up as helpful exactly when it's consulted and stays out of the way otherwise.</p>
+      <p>That reframing changes the unit of design from the model to the <span class="term">encounter</span>. The question is no longer &ldquo;how do we explain the model&rdquo; but &ldquo;what does the expert need to see at the instant they would otherwise hesitate.&rdquo; Answer that, and trust ratings move. We watched them move. After the redesign, every survey item scored a 4 or 5, from a starting point where nothing scored above 3.</p>
       <p>It also explains why trust surveys taken outside the workflow mislead. Ask a specialist whether they trust an AI tool in the abstract and you'll get their prior about AI. Ask them after they've worked a real case with it, at the moment the tool either helped or got in the way, and you get something closer to the truth. We timed every rating to the end of contextual sessions for exactly this reason.</p>
-      <p>The field has started calling the real goal <span class="term">appropriate reliance</span>: following the AI when it's right, overriding it when it's wrong.<sup class="fn"><a href="#n5" id="r5">5</a></sup><span class="fnote"><span class="fn-n">5</span>Schemmer et al., &ldquo;Appropriate Reliance on AI Advice,&rdquo; <i>IUI</i> (2023).</span> Maximal trust is not the target. A pathologist who trusts a diagnostic model unconditionally is as dangerous as one who refuses to look at it. Transparency's actual job is calibration, and calibration happens per case, per moment, not per product.</p>
+      <p>The field has started calling the real goal <span class="term">appropriate reliance</span>, following the AI when it's right and overriding it when it's wrong.<sup class="fn"><a href="#n5" id="r5">5</a></sup><span class="fnote"><span class="fn-n">5</span>Schemmer et al., &ldquo;Appropriate Reliance on AI Advice,&rdquo; <i>IUI</i> (2023).</span> Maximal trust is not the target. A pathologist who trusts a diagnostic model unconditionally is as dangerous as one who refuses to look at it. Transparency's actual job is calibration, and calibration happens per case and per moment rather than per product.</p>
 
       <h2 id="glassbox">IV. Designing the glass box</h2>
-      <p class="drop">The redesign replaced a black-box output with a <span class="term">glass box</span>: the model&rsquo;s reasoning surfaced at the decision point, in validated terminology, with two distinct modes for the pathologist and the technician whose workflows genuinely differ. None of this is &ldquo;more&rdquo; transparency in the quantity sense. It's transparency treated as a designed product with a job to do.</p>
-      <p>The lesson generalizes past medicine. Any time you put a model in front of an expert, the failure mode is the same: confusing legibility with usefulness. The fix is the same too. Design the information, not the disclosure.</p>
+      <p class="drop">The redesign replaced a black-box output with a <span class="term">glass box</span>, the model&rsquo;s reasoning surfaced at the decision point, in validated terminology, with two distinct modes for the pathologist and the technician whose workflows actually differ. None of it adds transparency in the quantity sense. It treats transparency as a designed product with a job to do.</p>
+      <p>The lesson generalizes past medicine. Any time you put a model in front of an expert, the failure mode is the same, confusing legibility with usefulness. The fix is the same too. Design the information rather than the disclosure.</p>
 
       <h2 id="notes">Notes</h2>
       <ol class="essay-notes">
@@ -166,6 +166,6 @@
   </div>
 </div>
 
-<script src="main.js?v=78"></script>
+<script src="main.js?v=80"></script>
 </body>
 </html>
