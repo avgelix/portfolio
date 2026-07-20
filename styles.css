@@ -770,3 +770,8 @@ html{scrollbar-gutter:stable}
 
 /* v68: modal image support */
 .lmodal-video img{width:100%;height:100%;display:block;object-fit:contain;border-radius:inherit}
+
+/* v78: align top of About portrait with the "Made across borders" headline
+   (offset = kicker line height ~15px + its 24px margin) */
+.about-side{padding-top:39px}
+@media(max-width:920px){.about-side{padding-top:0}}
