@@ -5,12 +5,12 @@
 <meta name="description" content="Case study: validating an AI diagnostic tool for thyroid pathology at UChicago Medicine — trust research with 12+ pathologists across 3 hospitals and a glass-box interface that earned 4–5/5 trust scores.">
 <link rel="canonical" href="https://apetrone.com/case-clinical-ai.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Validating a clinical AI product before it became a liability | Angela Petrone">
+<meta property="og:title" content="Earning clinical trust for an AI diagnostic tool | Angela Petrone">
 <meta property="og:description" content="Case study: validating an AI diagnostic tool for thyroid pathology at UChicago Medicine — trust research with 12+ pathologists across 3 hospitals and a glass-box interface that earned 4–5/5 trust scores.">
 <meta property="og:url" content="https://apetrone.com/case-clinical-ai.html">
 <meta property="og:image" content="https://apetrone.com/assets/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<title>Validating a clinical AI product before it became a liability | Angela Petrone</title>
+<title>Earning clinical trust for an AI diagnostic tool | Angela Petrone</title>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%23141419"/><text x="32" y="44" font-family="Georgia,serif" font-size="36" font-style="italic" fill="white" text-anchor="middle">A</text></svg>'>
 <link rel="stylesheet" href="case.css?v=85">
@@ -46,10 +46,9 @@
 <li><a href="#problem"><span class="n">01</span>The problem</a></li>
 <li><a href="#constraints"><span class="n">02</span>Constraints</a></li>
 <li><a href="#decisions"><span class="n">03</span>Key decisions</a></li>
-<li><a href="#measure"><span class="n">04</span>How I measured success</a></li>
-<li><a href="#solution"><span class="n">05</span>The solution</a></li>
-<li><a href="#outcomes"><span class="n">06</span>Outcomes</a></li>
-<li><a href="#next"><span class="n">07</span>What I would do next</a></li>
+<li><a href="#solution"><span class="n">04</span>The solution</a></li>
+<li><a href="#outcomes"><span class="n">05</span>Outcomes</a></li>
+<li><a href="#next"><span class="n">06</span>What I would do next</a></li>
 </ul>
 <div class="toc-meta">
 <div class="lbl">Role</div><div class="val">Product Manager @ <a href="https://id.iit.edu" target="_blank" rel="noopener">IIT Institute of Design</a> x <a href="https://www.uchicagomedicine.org" target="_blank" rel="noopener">UChicago Medicine</a></div>
@@ -60,39 +59,36 @@
 </aside>
 <main>
 <div class="case-head"><div class="case-logo"><img src="assets/logos/uchicago-medicine-gray.png" alt="UChicago Medicine"></div><span class="case-cat">Clinical AI</span></div>
-<h1>Validating a clinical AI product before it became a liability</h1>
+<h1>Earning clinical trust for an AI diagnostic tool</h1>
 <div class="chips"><span class="chip">HEALTHCARE AI</span><span class="chip">CLINICAL VALIDATION</span><span class="chip">RECOMMENDATIONS PRODUCTIONIZED</span></div>
-<p class="case-sub">Before the redesign, pathologists wouldn’t rate this tool above 3 out of 5 on trust, and some declined to rate it at all. After it, every survey item scored a 4 or 5, and the client productionized the recommendations.</p>
+<p class="case-sub">An AI diagnostic tool pathologists didn’t trust became one they rated 4 or 5 out of 5 on every trust dimension. The client productionized the recommendations, expanded their model offering, and revised their go-to-market on the strength of the findings.</p>
 
 <h2 id="problem">The problem</h2>
 <p>SlideFlow Labs, a clinical AI team within UChicago Medicine, builds AI-powered diagnostic software for pathologists, using specialized models to identify computational biomarkers that eliminate the need for expensive, time-consuming external testing. Their first model ready for clinical validation addressed thyroid pathology, distinguishing PTC from NIFTP, a clinically meaningful difference with diagnostic and prognostic implications. The product existed but had never been tested outside the team that built it.</p>
 <p>An unvalidated AI diagnostic tool in a clinical setting is a liability. The client needed to know whether pathologists would trust, accept, and use the product before investing further. I led the research and product validation effort, managing 2 designers and coordinating across ML engineers, physician scientists, and 12+ pathologists across 3 hospitals.</p>
-<div class="keyq"><div class="kql">The key question</div><p>Will pathologists trust, accept, and use this tool? And how would we know <em style="font-style:normal;color:var(--blue)">before</em> the client invested further?</p></div>
+<div class="keyq"><div class="kql">The key question</div><p>Will pathologists <em style="font-style:normal;color:var(--blue)">trust</em>, accept, and use this tool?</p></div>
 <h2 id="constraints">Constraints</h2>
 <div class="ctable-wrap"><table class="ctable"><tbody><tr><th>Timeline</th><td>Pathologist sessions were <b>scarce and non-recoverable</b>. Every interaction had to be designed to extract maximum insight.</td></tr><tr><th>Stakeholders</th><td><b>12+ thyroid pathologists across 3 hospitals</b>, among the hardest clinical users to access.</td></tr><tr><th>Technical / domain</th><td>Findings had to <b>survive clinical review</b>; every claim needed to hold up to a physician scientist.</td></tr><tr><th>Business need</th><td>An unvalidated clinical AI tool is <b>a liability</b>. The client needed proof of trust before further development.</td></tr></tbody></table></div>
 <div class="fig fig-photo"><img src="assets/Uchicago/usability-testing-web.jpg" alt="Pathologist working through the prototype at a microscopy workstation during a usability session" loading="lazy"></div><div class="figcap">RESEARCH SESSION WITH A PATHOLOGIST</div>
 <h2 id="decisions">Key decisions</h2>
 <p>With pathologist access this scarce, the wrong research approach was expensive in a way the schedule could not absorb. Five decisions shaped what we tested and, in turn, what shipped.</p>
 <div class="decision"><div class="dl">Decision #1: Research despite scarcity</div><p>The temptation was to minimize user research given how hard pathologist time was to secure. <b>We committed to it and designed every session to extract maximum insight per interaction</b>, because a validation effort without the actual users is not validation.</p></div><div class="decision"><div class="dl">Decision #2: One use case only</div><p>Contextual inquiry showed that what &ldquo;transparency,&rdquo; &ldquo;trust,&rdquo; and &ldquo;credibility&rdquo; mean for an AI tool is entirely use-case dependent. <b>We scoped to thyroid pathology only</b>; generalizing would have made every finding weaker.</p></div><div class="decision"><div class="dl">Decision #3: Trust over features</div><p>Rather than asking &ldquo;does this feature work,&rdquo; we asked <b>&ldquo;does this tool earn the right to be in a pathologist&rsquo;s workflow.&rdquo;</b> That reframe determined what we tested, and it is why the result was a glass-box interface instead of a better black box.</p></div><div class="decision"><div class="dl">Decision #4: Challenge the problem</div><p>We investigated whether the product was solving the right problem at all, and found that <b>some pathologists had more pressing workflow concerns</b> the tool could address more immediately than the diagnostic use case it was built for.</p></div><div class="decision"><div class="dl">Decision #5: Test the transparency assumption</div><p>The instinct was to surface everything the model knew. When we tested that assumption, it failed. The flood of information confused experts instead of reassuring them. <b>What pathologists needed was the right information at the right moment</b> in their workflow.</p></div>
-<h2 id="measure">How I measured success</h2>
-<p>What mattered was <b>whether expert users would trust the tool enough to let it into their workflow</b>. That's the leading indicator of clinical adoption, and the single thing an unvalidated diagnostic tool most needs to prove. We measured it with <b>a structured rating across trust, clarity, and credibility dimensions</b>. Five pathologists across all three hospitals rated the initial prototype. Five more, also across all three hospitals, rated the final one.</p>
-<p>We used fresh pathologists for each round on purpose. Nobody had already seen the first prototype, so no one&rsquo;s rating could be colored by memory of it. Pulling from all three hospitals both times kept it fair, so <b>the change shows how thyroid pathologists as a group responded to the redesign</b> rather than which five people happened to be in the room. Timing mattered too. Ratings came <b>after pathologists had actually worked with the tool</b>, at the end of contextual sessions, so the numbers captured informed judgment rather than a first impression.</p>
 <h2 id="solution">The solution</h2>
 <p>The product moved from a black-box output to <b>a glass-box interface</b>. Instead of a bare result, pathologists see the model&rsquo;s reasoning surfaced at the point in their workflow where it matters, in terminology validated through usability testing rather than raw technical specs. The design separated <b>two distinct user modes, pathologist and technician</b>, based on actual workflow mapping instead of assumed roles.</p>
 <p>It also surfaced <b>digital readiness as an adoption variable</b> that differed by hospital type, and packaged market positioning intelligence the client did not previously have, including how pathologists actually perceive the product relative to larger competitors.</p>
 <div class="fig fig-photo"><img src="assets/Uchicago/UI2-web.jpg" alt="Final prototype: test analysis view with attention heatmap and high-attention tiles surfacing the model's evidence" loading="lazy"></div><div class="figcap">GLASS-BOX INTERFACE · FINAL PROTOTYPE</div>
 <h2 id="outcomes">Outcomes</h2>
 <div class="metrics">
-<div><div class="num">4&ndash;5 out of 5</div><div class="lbl">pathologists rated the redesigned tool 4 or 5 on every trust survey item; before, no item scored above 3 and some pathologists declined to rate it at all (n=5 per round, fresh raters, all three hospitals)</div></div>
+<div><div class="num">3 → 5</div><div class="lbl">trust went from no survey item above 3, with some pathologists declining to rate at all, to every item at 4 or 5 after the redesign (fresh raters each round, all three hospitals)</div></div>
 <div><div class="num">→ PROD</div><div class="lbl">recommendations productionized; model offering expanded; go-to-market revised</div></div>
 </div>
-<div class="fig fig-photo"><img src="assets/Uchicago/UI1-web.jpg" alt="ThyroidDX prototype screens: diagnostic summary and slide overview with attention heatmap and data distributions" loading="lazy"></div><div class="figcap">THYROIDDX PROTOTYPE · DIAGNOSTIC SUMMARY AND EVIDENCE VIEWS</div>
-<p>The client productionized our recommendations, implemented specific elements of the glass-box interface, expanded their model offering to additional use cases to position as a full-stack platform, and revised their go-to-market after discovering their original value proposition was already being promised by competitors.</p>
+
+<p>Trust was measured with a structured rating across trust, clarity, and credibility, with fresh pathologists from all three hospitals in each round, rated only after hands-on sessions. The client productionized our recommendations, implemented specific elements of the glass-box interface, expanded their model offering to additional use cases to position as a full-stack platform, and revised their go-to-market after discovering their original value proposition was already being promised by competitors.</p>
 <h2 id="next">What I would do next</h2>
 <ul class="next-list">
 <li><b>Measure trust longitudinally.</b> Validation showed pathologists would let the tool in; instrumenting the live flow (how often they open the evidence panel, where they override the model, whether time-to-confidence shrinks) shows whether trust holds once it is there.</li>
 <li><b>Design the pathologist&ndash;technician handoff.</b> The two-mode finding implied a boundary the prototype never formalized, and that boundary is where adoption fails without anyone noticing if left undesigned.</li>
-<li><b>Expand use cases against demand rather than capability.</b> The full-stack platform ambition only pays off if each added model answers a workflow concern pathologists actually raised.</li>
+<li><b>Expand use cases against demand rather than capability.</b> The full-stack platform ambition only pays off if each added model solves a problem pathologists said they have, not just one the models can solve.</li>
 </ul>
 <nav class="case-next">
 <a href="#" onclick="history.back();return false">← All work</a>
